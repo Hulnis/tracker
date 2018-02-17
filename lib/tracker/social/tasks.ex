@@ -8,7 +8,7 @@ defmodule Tracker.Social.Tasks do
     field :body, :string
     field :time_spent, :integer
     field :title, :string
-    field :assigned_user, :id
+    field :assigned_user_id, :id
 
     timestamps()
   end
