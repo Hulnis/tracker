@@ -11,6 +11,6 @@ defmodule Tracker.Repo.Migrations.CreateTasks do
       timestamps()
     end
 
-    create index(:tasks, [:assigned_user])
+    create index(:tasks, [:assigned_user_id])
   end
 end
