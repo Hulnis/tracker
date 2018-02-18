@@ -15,6 +15,7 @@ defmodule TrackerWeb.TasksController do
   end
 
   def create(conn, %{"tasks" => tasks_params}) do
+    IO.inspect(tasks_params)
     case Social.create_tasks(tasks_params) do
       {:ok, tasks} ->
         conn
