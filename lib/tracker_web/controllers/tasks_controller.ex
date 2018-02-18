@@ -16,7 +16,7 @@ defmodule TrackerWeb.TasksController do
 
   def create(conn, %{"tasks" => tasks_params}) do
     IO.inspect(tasks_params)
-    tasks_params = Map.put(tasks_params, "user_id", @current_user.id)
+    tasks_params = Map.put(tasks_params, "user", conn.assigns(:current_user)
     case Social.create_tasks(tasks_params) do
       {:ok, tasks} ->
         conn
