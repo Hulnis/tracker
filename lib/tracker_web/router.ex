@@ -4,6 +4,7 @@ defmodule TrackerWeb.Router do
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
+    plug(Tracker.CurrentUserPlug)
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
@@ -20,6 +21,9 @@ defmodule TrackerWeb.Router do
 
     resources "/users", UserController
     resources "/tasks", TasksController
+
+    post "/session", SessionController, :create
+    delete "/session", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.
