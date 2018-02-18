@@ -7,7 +7,7 @@ defmodule TrackerWeb.PageController do
 
   def feed(conn, _params) do
     posts = Trakcer.Social.list_posts()
-    changeset = Trakcer.Social.change_post(%Trakcer.Social.Tasks{})
+    changeset = Trakcer.Social.change_post(%Tracker.Social.Tasks{})
     render conn, "feed.html", posts: posts, changeset: changeset
   end
 end
