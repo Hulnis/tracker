@@ -17,7 +17,7 @@
         <h6 class="card-title">Task: <%= task.title %></h6>
         <h6 class="card-title">Assigned to:
           <%= if task. do %>
-            <%= task.assigned_user.name
+            <%= task.assigned_user.name %>
           <% else %>
             No one!
           <% end %>
