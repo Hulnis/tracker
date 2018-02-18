@@ -8,7 +8,7 @@ defmodule Tracker.Social.Tasks do
     field :body, :string
     field :time_spent, :integer
     field :title, :string
-    # belongs_to :assigned_user, Tracker.Accounts.User
+    belongs_to :assigned_user, Tracker.Accounts.User
     belongs_to :user, Tracker.Accounts.User
 
     timestamps()
@@ -17,7 +17,7 @@ defmodule Tracker.Social.Tasks do
   @doc false
   def changeset(%Tasks{} = tasks, attrs) do
     tasks
-    |> cast(attrs, [:body, :title, :time_spent])
+    |> cast(attrs, [:body, :title, :time_spent], :user, :assigned_user)
     |> validate_required([:body, :title, :time_spent])
   end
 end
