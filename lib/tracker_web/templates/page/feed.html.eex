@@ -21,7 +21,7 @@
           <% else %>
             No one!
           <% end %>
-        <p><%= tasks.body %></p>
+        <p><%= task.body %></p>
       </div>
     </div>
   </div>
