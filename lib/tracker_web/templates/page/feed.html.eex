@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <%= render TrackerWeb.TasksView, "form.html",
-          Map.put(assigns, :action, post_path(@conn, :create)) %>
+          Map.put(assigns, :action, tasks_path(@conn, :create)) %>
     </div>
   </div>
 <% end %>
