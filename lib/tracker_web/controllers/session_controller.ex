@@ -1,8 +1,8 @@
-defmodule MicroblogWeb.SessionController do
-  use MicroblogWeb, :controller
+defmodule TrackerWeb.SessionController do
+  use TrackerWeb, :controller
 
-  alias Microblog.Accounts
-  alias Microblog.Accounts.User
+  alias Tracker.Accounts
+  alias Tracker.Accounts.User
 
   def create(conn, %{"email" => email}) do
     user = Accounts.get_user_by_email(email)
