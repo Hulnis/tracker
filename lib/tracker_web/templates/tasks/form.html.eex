@@ -18,8 +18,8 @@
   </div>
 
   <div class="form-group">
-    <%= hidden_input f, :user, class: "form-control", value: @current_user %>
-    <%= error_tag f, :user %>
+    <%= hidden_input f, :user_id, class: "form-control", value: @current_user.id %>
+    <%= error_tag f, :user_id %>
   </div>
 
   <div class="form-group">
@@ -28,8 +28,8 @@
   </div>
 
   <div class="form-group">
-    <%= hidden_input f, :assigned_user, class: "form-control", value: nil %>
-    <%= error_tag f, :assigned_user %>
+    <%= hidden_input f, :assigned_user_id, class: "form-control", value: nil %>
+    <%= error_tag f, :assigned_user_id %>
   </div>
 
   <div class="form-group">
