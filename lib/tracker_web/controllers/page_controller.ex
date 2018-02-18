@@ -6,8 +6,8 @@ defmodule TrackerWeb.PageController do
   end
 
   def feed(conn, _params) do
-    posts = Tracker.Social.list_posts()
-    changeset = Tracker.Social.change_post(%Tracker.Social.Tasks{})
-    render conn, "feed.html", posts: posts, changeset: changeset
+    tasks = Tracker.Social.list_tasks()
+    changeset = Tracker.Social.change_tasks(%Tracker.Social.Tasks{})
+    render conn, "feed.html", tasks: tasks, changeset: changeset
   end
 end
