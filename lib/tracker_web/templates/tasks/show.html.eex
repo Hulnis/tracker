@@ -17,6 +17,10 @@
     <%= @tasks.time_spent %>
   </li>
 
+  <li>
+    <strong>Time spent:</strong>
+    <%= @tasks.assigned_user.name %>
+  </li>
 </ul>
 
 <span><%= link "Edit", to: tasks_path(@conn, :edit, @tasks) %></span>

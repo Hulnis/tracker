@@ -20,6 +20,7 @@ defmodule Tracker.Social do
   def list_tasks do
     Repo.all(Tasks)
     |> Repo.preload(:user)
+    |> Repo.preload(:assigned_user)
   end
 
   @doc """
@@ -51,8 +52,6 @@ defmodule Tracker.Social do
 
   """
   def create_tasks(attrs \\ %{}) do
-    IO.puts("attrs")
-    IO.inspect(attrs)
     %Tasks{}
     |> Tasks.changeset(attrs)
     |> Repo.insert()
