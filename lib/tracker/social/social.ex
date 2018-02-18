@@ -19,6 +19,7 @@ defmodule Tracker.Social do
   """
   def list_tasks do
     Repo.all(Tasks)
+    |> Repo.preload(:user)
   end
 
   @doc """

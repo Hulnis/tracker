@@ -4,4 +4,10 @@ defmodule TrackerWeb.PageController do
   def index(conn, _params) do
     render conn, "index.html"
   end
+
+  def feed(conn, _params) do
+    posts = Trakcer.Social.list_posts()
+    changeset = Trakcer.Social.change_post(%Trakcer.Social.Tasks{})
+    render conn, "feed.html", posts: posts, changeset: changeset
+  end
 end
