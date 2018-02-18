@@ -5,7 +5,7 @@ defmodule Tracker.Repo.Migrations.CreateTasks do
     create table(:tasks) do
       add :body, :text, null: false
       add :title, :string, null: false
-      add :time_spent, :integer, deafult: 0
+      add :time_spent, :integer, default: 0
       add :user_id, references(:users, on_delete: :delete_all), null: false
       add :assigned_user_id, references(:users, on_delete: :delete_all), default: nil
 
