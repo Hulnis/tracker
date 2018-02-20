@@ -7,7 +7,7 @@ defmodule Tracker.Repo.Migrations.CreateTasks do
       add :title, :string, null: false
       add :time_spent, :integer, default: 0
       add :user_id, references(:users, on_delete: :delete_all), null: false
-      add :assigned_user_id, references(:users, on_delete: :delete_all), default: nil
+      add :assigned_user_id, references(:users), default: nil
       add :is_complete, :boolean, default: false
 
       timestamps()
