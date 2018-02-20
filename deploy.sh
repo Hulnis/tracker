@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PORT=5101
+export PORT=5102
 export MIX_ENV=prod
 export GIT_PATH=/home/tracker/src/tracker
 
@@ -20,8 +20,8 @@ fi
 mix deps.get
 (cd assets && npm install)
 (cd assets && ./node_modules/brunch/bin/brunch b -p)
-~/src/microblog$ MIX_ENV=prod mix ecto.create
-~/src/microblog$ MIX_ENV=prod mix ecto.migrate
+~/src/tracker$ MIX_ENV=prod mix ecto.create
+~/src/tracker$ MIX_ENV=prod mix ecto.migrate
 mix phx.digest
 mix release --env=prod
 

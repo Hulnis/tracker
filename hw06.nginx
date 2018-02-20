@@ -5,7 +5,7 @@ server {
 	server_name memory.webdevnumber1.com;
 
 	location / {
-		proxy_pass http://localhost:5101;
+		proxy_pass http://localhost:5102;
 		#try_files $uri $uri/ =404;
 	}
 }
