@@ -64,22 +64,19 @@ defmodule TrackerWeb.TasksController do
     IO.inspect(time_spent)
     if rem(time_spent, 15) == 0  do
       tasks_params = Map.put(tasks_params, "time_spent", time_spent)
+      case Social.update_tasks(tasks, tasks_params) do
+        {:ok, tasks} ->
+          conn
+          |> put_flash(:info, "Tasks updated successfully.")
+          |> redirect(to: tasks_path(conn, :show, tasks))
+        {:error, %Ecto.Changeset{} = changeset} ->
+          render(conn, "edit.html", tasks: tasks, changeset: changeset)
+      end
     else
       changeset = Social.change_tasks(tasks)
       new_changeset = Ecto.Changeset.add_error(changeset, :time_spent, "Must increment by 15")
       IO.inspect(new_changeset)
       render(conn, "edit.html", tasks: tasks, changeset: new_changeset)
-    end
-    IO.puts("new task params-----------")
-    IO.inspect(tasks_params)
-
-    case Social.update_tasks(tasks, tasks_params) do
-      {:ok, tasks} ->
-        conn
-        |> put_flash(:info, "Tasks updated successfully.")
-        |> redirect(to: tasks_path(conn, :show, tasks))
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", tasks: tasks, changeset: changeset)
     end
   end
 
