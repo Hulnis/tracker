@@ -19,7 +19,12 @@
 
   <li>
     <strong>Assigned User:</strong>
-    <%= @tasks.assigned_user.name %>
+    <%= link @tasks.assigned_user.name, to: user_path(@conn, :show, @tasks.assigned_user) %>
+  </li>
+
+  <li>
+    <strong>Created By</strong>
+    <%= link @tasks.user.name, to: user_path(@conn, :show, @tasks.user) %>
   </li>
 </ul>
 

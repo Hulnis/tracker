@@ -37,7 +37,11 @@ defmodule Tracker.Social do
       ** (Ecto.NoResultsError)
 
   """
-  def get_tasks!(id), do: Repo.get!(Tasks, id)
+  def get_tasks!(id), do
+    Repo.get!(Tasks, id)
+    |> Repo.preload(:user)
+    |> Repo.preload(:assigned_user)
+  end
 
   @doc """
   Creates a tasks.

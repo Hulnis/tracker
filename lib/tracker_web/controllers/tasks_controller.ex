@@ -28,7 +28,6 @@ defmodule TrackerWeb.TasksController do
 
   def show(conn, %{"id" => id}) do
     tasks = Social.get_tasks!(id)
-    |> Repo.preload(:assigned_user)
     render(conn, "show.html", tasks: tasks)
   end
 
