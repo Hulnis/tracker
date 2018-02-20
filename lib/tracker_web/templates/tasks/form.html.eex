@@ -23,9 +23,7 @@
     <%= error_tag f, :assigned_user %>
   </div>
 
-
-  <%= IO.inspect(@conn.request_path) %>
-  <%= if @conn.request_path != "feed" do %>
+  <%= if @conn.request_path != "/feed" do %>
     <div class="form-group">
       <%= label f, "Status", class: "control-label" %>
       <%= text_input f, :status, class: "form-control", value: nil %>
