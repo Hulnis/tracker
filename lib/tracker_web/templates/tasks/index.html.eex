@@ -1,12 +1,12 @@
-<h2>Listing Tasks</h2>
+<h2>All Tasks</h2>
 
 <table class="table">
   <thead>
     <tr>
       <th>Body</th>
       <th>Title</th>
-      <th>Time spent</th>
-
+      <th>Time Spent</th>
+      <th>Assigned User</th>
       <th></th>
     </tr>
   </thead>
@@ -16,6 +16,13 @@
       <td><%= tasks.body %></td>
       <td><%= tasks.title %></td>
       <td><%= tasks.time_spent %></td>
+      <td>
+        <%= if @tasks.assigned_user do %>
+          <%= tasks.assinged_user.name %>
+        <% else %>
+          <span>Not Assigned</span>
+        <% end %>
+      </td>
 
       <td class="text-right">
         <span><%= link "Show", to: tasks_path(@conn, :show, tasks), class: "btn btn-default btn-xs" %></span>
@@ -27,4 +34,5 @@
   </tbody>
 </table>
 
-<span><%= link "New Tasks", to: tasks_path(@conn, :new) %></span>
+<span><%= link "New Task", to: tasks_path(@conn, :new) %></span>
+<span><%= link "To Feed", to: page_path(@conn, :feed) %></span>

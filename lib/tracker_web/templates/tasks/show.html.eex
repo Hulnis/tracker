@@ -1,7 +1,6 @@
-<h2>Show Tasks</h2>
+<h2><%= @tasks.title %></h2>
 
 <ul>
-
   <li>
     <strong>Body:</strong>
     <%= @tasks.body %>
