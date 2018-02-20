@@ -3,6 +3,7 @@ defmodule TrackerWeb.TasksController do
 
   alias Tracker.Social
   alias Tracker.Social.Tasks
+  alias Tracker.Accounts
 
   def index(conn, _params) do
     tasks = Social.list_tasks()
