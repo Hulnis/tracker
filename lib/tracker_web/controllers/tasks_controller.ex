@@ -55,11 +55,11 @@ defmodule TrackerWeb.TasksController do
     IO.inspect(tasks_params)
     IO.inspect(tasks.user.id)
     IO.inspect(conn.assigns[:current_user].id)
-    tasks_params = if (conn.assigns[:current_user].id == tasks.user.id && name != "") do
+    tasks_params = if (conn.assigns[:current_user].id == tasks.user.id and name != "") do
       IO.puts("in the if")
       Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
     else
-      tasks_params
+      Map.put(tasks_params, "assigned_user_id", nil)
     end
     time_spent = String.to_integer(tasks_params["time_spent"])
 

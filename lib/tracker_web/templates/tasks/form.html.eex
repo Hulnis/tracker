@@ -31,7 +31,7 @@
     </div>
   <% end %>
 
-  <%= if @conn.request_path != "/feed" do %>
+  <%= if @conn.request_path != "/feed" or @conn.request_path != "/tasks/new" do %>
     <div class="form-group">
       <%= label f, "Time Spent (increment by 15)", class: "control-label" %>
       <%= number_input f, :time_spent  %>
