@@ -67,6 +67,7 @@ defmodule TrackerWeb.TasksController do
     else
       changeset = Social.change_tasks(tasks)
       new_changeset = Ecto.Changeset.add_error(changeset, :time_spent, "Must increment by 15")
+      IO.inspect(new_changeset)
       render(conn, "edit.html", tasks: tasks, changeset: new_changeset)
     end
     IO.puts("new task params-----------")
