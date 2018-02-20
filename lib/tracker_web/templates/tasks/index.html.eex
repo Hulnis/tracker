@@ -18,7 +18,7 @@
       <td><%= tasks.time_spent %></td>
       <td>
         <%= if @tasks.assigned_user do %>
-          <%= tasks.assigned_user.name %>
+          <%= @tasks.assigned_user.name %>
         <% else %>
           <span>Not Assigned</span>
         <% end %>
