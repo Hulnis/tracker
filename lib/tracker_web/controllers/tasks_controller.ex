@@ -62,10 +62,11 @@ defmodule TrackerWeb.TasksController do
 
     IO.puts("time spent----")
     IO.inspect(time_spent)
-    tasks_params = if rem(time_spent, 15) == 0  do
-      Map.put(tasks_params, "time_spent", time_spent)
+    if rem(time_spent, 15) == 0  do
+      tasks_params = Map.put(tasks_params, "time_spent", time_spent)
     else
-      tasks_params
+      new_changeset = Ecto.Changeset.add_error(changeset, :time_spent, "Must increment by 15")
+      render(conn, "edit.html", tasks: tasks, changeset: changeset)
     end
     IO.puts("new task params-----------")
     IO.inspect(tasks_params)
