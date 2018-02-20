@@ -19,7 +19,7 @@
           <%= if task.assigned_user do %>
             <%= task.assigned_user.name %>
           <% else %>
-            Nobody, edit to assign.
+            Not assigned.
           <% end %>
         <p><%= task.body %></p>
         <p><%= link "Edit", to: tasks_path(@conn, :edit, task) %></p>

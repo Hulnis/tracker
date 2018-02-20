@@ -19,7 +19,12 @@
 
   <li>
     <strong>Assigned User:</strong>
-    <%= link @tasks.assigned_user.name, to: user_path(@conn, :show, @tasks.assigned_user) %>
+    <%= if @tasks.assigned_user do %>
+      <%= link @tasks.assigned_user.name, to: user_path(@conn, :show, @tasks.assigned_user) %>
+    <% else %>
+      <span>Not Assigned</span>
+    <% end %>
+
   </li>
 
   <li>
