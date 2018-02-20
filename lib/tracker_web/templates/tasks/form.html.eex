@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <%= label f, "Assign To (Optional)", class: "control-label" %>
-    <%= text_input f, :assigned_user, class: "form-control", placeholder: "User Name" %>
+    <%= text_input f, :assigned_user, class: "form-control", placeholder: "User Name", value: nil %>
     <%= error_tag f, :assigned_user %>
   </div>
 
