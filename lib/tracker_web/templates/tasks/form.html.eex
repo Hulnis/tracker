@@ -25,7 +25,7 @@
 
   <div class="form-group">
     <%= label f, "Status", class: "control-label" %>
-    <%= text_input f, :assigned_user, class: "form-control", value: nil %>
+    <%= text_input f, :status, class: "form-control", value: nil %>
     <%= error_tag f, :assigned_user %>
   </div>
 
