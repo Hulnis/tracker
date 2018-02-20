@@ -15,6 +15,6 @@ config :tracker, TrackerWeb.Endpoint,
 config :tracker, Tracker.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "Oop0Haegh4qu",
+  password: "postgres_prod_password",
   database: "tracker_prod",
   pool_size: 15

@@ -2,7 +2,6 @@ defmodule TrackerWeb.SessionController do
   use TrackerWeb, :controller
 
   alias Tracker.Accounts
-  alias Tracker.Accounts.User
 
   def create(conn, %{"email" => email}) do
     user = Accounts.get_user_by_email(email)
