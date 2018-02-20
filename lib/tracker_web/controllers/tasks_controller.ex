@@ -58,7 +58,7 @@ defmodule TrackerWeb.TasksController do
     else
       tasks_params
     end
-    time_spent = tasks_params["time_spent"]
+    time_spent = Integer.parse(tasks_params["time_spent"])
 
     IO.puts("time spent----")
     IO.inspect(time_spent)
