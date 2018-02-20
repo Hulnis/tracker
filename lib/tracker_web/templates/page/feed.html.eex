@@ -29,5 +29,5 @@
 </div>
 <% end %>
 
-<span><%= link "All Tasks", to: user_path(@conn, :index) %></span>
-<span><%= link "All Users", to: tasks_path(@conn, :index) %></span>
+<span><%= link "All Tasks", to: tasks_path(@conn, :index) %></span>
+<span><%= link "All Users", to: user_path(@conn, :index) %></span>

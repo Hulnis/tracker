@@ -26,4 +26,5 @@
 </table>
 
 <span><%= link "New User", to: user_path(@conn, :new) %></span>
+<span>|</span>
 <span><%= link "To Feed", to: page_path(@conn, :feed) %></span>

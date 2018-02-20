@@ -33,4 +33,5 @@
 </ul>
 
 <span><%= link "Edit", to: tasks_path(@conn, :edit, @tasks) %></span>
+<span>|</span>
 <span><%= link "Back", to: tasks_path(@conn, :index) %></span>
