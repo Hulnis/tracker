@@ -58,8 +58,8 @@ defmodule TrackerWeb.TasksController do
     else
       tasks_params
     end
-    time_spent = task_params["time_spent"]
-    task_params = if rem(time_spent, 15) == 0  do
+    time_spent = tasks_params["time_spent"]
+    tasks_params = if rem(time_spent, 15) == 0  do
       Map.put(tasks_params, "time_spent", time_spent)
     else
       tasks_params
