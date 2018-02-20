@@ -20,8 +20,8 @@ defmodule TrackerWeb.TasksController do
     name = tasks_params["assigned_user"]
     IO.puts("old task params-----------")
     IO.inspect(tasks_params)
-    if (name) do
-      tasks_params = Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
+    tasks_params = if (name) do
+       Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
     end
     IO.puts("new task params-----------")
     IO.inspect(tasks_params)
@@ -53,7 +53,7 @@ defmodule TrackerWeb.TasksController do
     IO.inspect(tasks_params)
     tasks_params = if (name) do
        Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
-     end
+    end
     IO.puts("new task params-----------")
     IO.inspect(tasks_params)
 
