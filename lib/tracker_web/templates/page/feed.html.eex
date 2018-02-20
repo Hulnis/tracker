@@ -39,4 +39,5 @@
 <% end %>
 
 <span><%= link "All Tasks", to: tasks_path(@conn, :index) %></span>
+<span>|</span>
 <span><%= link "All Users", to: user_path(@conn, :index) %></span>

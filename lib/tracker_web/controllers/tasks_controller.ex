@@ -53,6 +53,7 @@ defmodule TrackerWeb.TasksController do
     name = tasks_params["assigned_user"]
     IO.puts("old task params-----------")
     IO.inspect(tasks_params)
+    IO.inspect(tasks)
     tasks_params = if (@current_user.id == tasks.user.id && name != "") do
        Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
     else
