@@ -32,7 +32,7 @@
 
   <li>
     <strong>Status</strong>
-    <%= if @task.is_complete do %>
+    <%= if @tasks.is_complete do %>
       Complete
     <% else %>
       Not Complete

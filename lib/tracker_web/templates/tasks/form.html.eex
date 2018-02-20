@@ -23,11 +23,16 @@
     <%= error_tag f, :assigned_user %>
   </div>
 
-  <div class="form-group">
-    <%= label f, "Status", class: "control-label" %>
-    <%= text_input f, :status, class: "form-control", value: nil %>
-    <%= error_tag f, :status %>
-  </div>
+
+
+  <%= if @conn.request_path != "feed" do %>
+    <div class="form-group">
+      <%= label f, "Status", class: "control-label" %>
+      <%= text_input f, :status, class: "form-control", value: nil %>
+      <%= error_tag f, :status %>
+    </div>
+  <% end %>
+
 
   <div class="form-group">
     <%= hidden_input f, :time_spent, class: "form-control", value: 0 %>
