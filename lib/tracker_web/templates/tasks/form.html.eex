@@ -42,7 +42,7 @@
       <%= hidden_input f, :time_spent, class: "form-control", value: 0 %>
       <%= error_tag f, :time_spent %>
     </div>
-  <% else %>
+  <% end %>
 
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
