@@ -15,9 +15,7 @@ defmodule TrackerWeb.TasksController do
   end
 
   def create(conn, %{"tasks" => tasks_params}) do
-    IO.inspect(tasks_params)
     tasks_params = Map.put(tasks_params, "user_id", conn.assigns[:current_user].id)
-    IO.inspect(tasks_params)
     case Social.create_tasks(tasks_params) do
       {:ok, tasks} ->
         conn
@@ -30,6 +28,7 @@ defmodule TrackerWeb.TasksController do
 
   def show(conn, %{"id" => id}) do
     tasks = Social.get_tasks!(id)
+    |> Repo.preload(:assigned_user)
     render(conn, "show.html", tasks: tasks)
   end
 
