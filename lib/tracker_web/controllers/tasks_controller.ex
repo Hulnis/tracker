@@ -21,7 +21,7 @@ defmodule TrackerWeb.TasksController do
     IO.puts("assigned user::::::")
     IO.inspect(name)
     if (name) do
-      tasks_params = Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name))
+      tasks_params = Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
     end
     IO.puts("new task params-----------")
     IO.inspect(tasks_params)
