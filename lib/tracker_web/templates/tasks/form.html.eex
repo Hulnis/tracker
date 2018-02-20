@@ -24,7 +24,7 @@
   </div>
 
 
-
+  <%= console.log(@conn.request_path) %>
   <%= if @conn.request_path != "feed" do %>
     <div class="form-group">
       <%= label f, "Status", class: "control-label" %>
