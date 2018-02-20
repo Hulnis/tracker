@@ -33,7 +33,7 @@
 <% end %>
   </tbody>
 </table>
-
+<!-- 
 <span><%= link "New Task", to: tasks_path(@conn, :new) %></span>
 <span>|</span>
-<span><%= link "To Feed", to: page_path(@conn, :feed) %></span>
+<span><%= link "To Feed", to: page_path(@conn, :feed) %></span> -->
