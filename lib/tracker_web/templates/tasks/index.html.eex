@@ -6,6 +6,7 @@
       <th>Body</th>
       <th>Title</th>
       <th>Time Spent</th>
+      <th>Assigned User</th>
       <th></th>
     </tr>
   </thead>
@@ -15,6 +16,13 @@
       <td><%= tasks.body %></td>
       <td><%= tasks.title %></td>
       <td><%= tasks.time_spent %></td>
+      <!-- <td>
+        <%= if @tasks.assigned_user do %>
+          <%= tasks.assigned_user.name %>
+        <% else %>
+          <span>Not Assigned</span>
+        <% end %>
+      </td> -->
 
       <td class="text-right">
         <span><%= link "Show", to: tasks_path(@conn, :show, tasks), class: "btn btn-default btn-xs" %></span>
