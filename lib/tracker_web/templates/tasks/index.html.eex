@@ -6,7 +6,7 @@
       <th>Body</th>
       <th>Title</th>
       <th>Time Spent</th>
-      <th>Assigned User</th>
+      <!-- <th>Assigned User</th> -->
       <th></th>
     </tr>
   </thead>
