@@ -22,7 +22,9 @@ defmodule TrackerWeb.TasksController do
     IO.inspect(tasks_params)
     tasks_params = if (name) do
        Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
-    end
+     else
+       task_params
+     end
     IO.puts("new task params-----------")
     IO.inspect(tasks_params)
     case Social.create_tasks(tasks_params) do
@@ -53,6 +55,8 @@ defmodule TrackerWeb.TasksController do
     IO.inspect(tasks_params)
     tasks_params = if (name != "") do
        Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
+    else
+      task_params
     end
     IO.puts("new task params-----------")
     IO.inspect(tasks_params)

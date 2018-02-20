@@ -25,7 +25,7 @@
 
   <%= if @conn.request_path != "/feed" do %>
     <div class="form-group">
-      <%= label f, "Status", class: "control-label" %>
+      <%= label f, "Completed? ", class: "control-label" %>
       <%= checkbox f, :status  %>
       <%= error_tag f, :status %>
     </div>
