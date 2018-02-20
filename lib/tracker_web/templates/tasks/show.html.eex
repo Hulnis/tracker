@@ -23,12 +23,20 @@
     <% else %>
       <span>Not Assigned</span>
     <% end %>
-
   </li>
 
   <li>
     <strong>Created By</strong>
     <%= link @tasks.user.name, to: user_path(@conn, :show, @tasks.user) %>
+  </li>
+
+  <li>
+    <strong>Status</strong>
+    <%= if @task.is_complete do %>
+      Complete
+    <% else %>
+      Not Complete
+    <% end %>
   </li>
 </ul>
 

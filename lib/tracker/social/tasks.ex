@@ -8,6 +8,7 @@ defmodule Tracker.Social.Tasks do
     field :body, :string
     field :time_spent, :integer
     field :title, :string
+    field :is_complete, :boolean
     belongs_to :assigned_user, Tracker.Accounts.User
     belongs_to :user, Tracker.Accounts.User
 

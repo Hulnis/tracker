@@ -15,14 +15,20 @@
     <div class="card">
       <div class="card-body">
         <h6 class="card-title">Task: <%= task.title %></h6>
-        <p>Assigned to:
+        <h6 class="card-title">Assigned to:
           <%= if task.assigned_user do %>
             <%= link task.assigned_user.name, to: user_path(@conn, :show, task.assigned_user) %>
-            <%= task.assigned_user.name %>
           <% else %>
             Not assigned.
           <% end %>
-        <p>
+        </h6>
+        <h6 class="card-title">Status:
+          <%= if task.is_complete do %>
+            Complete
+          <% else %>
+            Not Complete
+          <% end %>
+        </h6>
         <p>Body:</p>
         <p><%= task.body %></p>
         <p><%= link "Edit", to: tasks_path(@conn, :edit, task) %></p>
