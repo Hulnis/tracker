@@ -51,20 +51,13 @@ defmodule TrackerWeb.TasksController do
   def update(conn, %{"id" => id, "tasks" => tasks_params}) do
     tasks = Social.get_tasks!(id)
     name = tasks_params["assigned_user"]
-    IO.puts("old task params-----------")
-    IO.inspect(tasks_params)
-    IO.inspect(tasks.user.id)
-    IO.inspect(conn.assigns[:current_user].id)
     tasks_params = if (conn.assigns[:current_user].id == tasks.user.id and name != "") do
-      IO.puts("in the if")
       Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
     else
       Map.put(tasks_params, "assigned_user_id", nil)
     end
     time_spent = String.to_integer(tasks_params["time_spent"])
 
-    IO.puts("time spent----")
-    IO.inspect(time_spent)
     if rem(time_spent, 15) == 0  do
       tasks_params = Map.put(tasks_params, "time_spent", time_spent)
       case Social.update_tasks(tasks, tasks_params) do

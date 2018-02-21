@@ -10,6 +10,7 @@
       <div class="form-group">
         <button class="btn btn-primary">Log in</button>
         <%= link "Register", to: user_path(@conn, :new) %>
+        <%= link "Feed", to: page_path(@conn, :feed) %>
       </div>
     <% end %>
 
