@@ -23,7 +23,7 @@
           <% else %>
             <p>
               <span>Not logged in.</span>
-              <span>| <%= link "Log In", to: page_path(@conn, :index) %>
+              <span>| <%= link "Log In", to: page_path(@conn, :index) %></span>
             </p>
           <% end %>
         </div>
