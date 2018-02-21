@@ -54,7 +54,7 @@ defmodule TrackerWeb.TasksController do
     end
     time_spent = String.to_integer(tasks_params["time_spent"])
 
-    if rem(time_spent, 15 == 0 and tasks.assigned_user and conn.assigns[:current_user].id == tasks.assigned_user.id)  do
+    if rem(time_spent, 15) == 0 and tasks.assigned_user and conn.assigns[:current_user].id == tasks.assigned_user.id do
       tasks_params = Map.put(tasks_params, "time_spent", time_spent)
       case Social.update_tasks(tasks, tasks_params) do
         {:ok, tasks} ->
