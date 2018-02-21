@@ -32,15 +32,15 @@
   <% end %>
 
   <%= @conn.request_path %>
-  <%= if @conn.request_path != "/feed" or @conn.request_path != "/tasks/new" do %>
+  <%= if @conn.request_path == "/feed" or @conn.request_path == "/tasks/new" do %>
     <div class="form-group">
-      <%= label f, "Time Spent (increment by 15)", class: "control-label" %>
-      <%= number_input f, :time_spent  %>
+      <%= hidden_input f, :time_spent, class: "form-control", value: 0 %>
       <%= error_tag f, :time_spent %>
     </div>
   <% else %>
     <div class="form-group">
-      <%= hidden_input f, :time_spent, class: "form-control", value: 0 %>
+      <%= label f, "Time Spent (increment by 15)", class: "control-label" %>
+      <%= number_input f, :time_spent  %>
       <%= error_tag f, :time_spent %>
     </div>
   <% end %>
