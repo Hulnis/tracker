@@ -31,7 +31,6 @@
     </div>
   <% end %>
 
-  <%= @conn.request_path %>
   <%= if @conn.request_path == "/feed" or @conn.request_path == "/tasks/new" do %>
     <div class="form-group">
       <%= hidden_input f, :time_spent, class: "form-control", value: 0 %>
