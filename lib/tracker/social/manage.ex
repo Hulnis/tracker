@@ -5,8 +5,8 @@ defmodule Tracker.Social.Manage do
 
 
   schema "manages" do
-    belongs_to :manager_id, User
-    belongs_to :worker_id, User
+    belongs_to :manager, User
+    belongs_to :worker, User
 
     timestamps()
   end
