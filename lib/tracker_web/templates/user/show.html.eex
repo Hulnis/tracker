@@ -23,7 +23,7 @@
   <li>
     <%= if @user.workers_managed do %>
       <strong>Workers Managed</strong>
-      <%= for user <- @user.worker_managed %>
+      <%= for user <- @user.worker_managed do %>
         <li><%= user.name %></li>
       <% end %>
     <% else %>
