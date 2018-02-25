@@ -2,6 +2,7 @@ defmodule Tracker.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias Tracker.Accounts.User
+  alias Tracker.Social.Manage
 
 
   schema "users" do
