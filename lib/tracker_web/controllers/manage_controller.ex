@@ -4,39 +4,57 @@ defmodule TrackerWeb.ManageController do
   alias Tracker.Social
   alias Tracker.Social.Manage
 
-  action_fallback TrackerWeb.FallbackController
-
   def index(conn, _params) do
     manages = Social.list_manages()
-    render(conn, "index.json", manages: manages)
+    render(conn, "index.html", manages: manages)
+  end
+
+  def new(conn, _params) do
+    changeset = Social.change_manage(%Manage{})
+    render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"manage" => manage_params}) do
-    with {:ok, %Manage{} = manage} <- Social.create_manage(manage_params) do
-      conn
-      |> put_status(:created)
-      |> put_resp_header("location", manage_path(conn, :show, manage))
-      |> render("show.json", manage: manage)
+    case Social.create_manage(manage_params) do
+      {:ok, manage} ->
+        conn
+        |> put_flash(:info, "Manage created successfully.")
+        |> redirect(to: manage_path(conn, :show, manage))
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "new.html", changeset: changeset)
     end
   end
 
   def show(conn, %{"id" => id}) do
     manage = Social.get_manage!(id)
-    render(conn, "show.json", manage: manage)
+    render(conn, "show.html", manage: manage)
+  end
+
+  def edit(conn, %{"id" => id}) do
+    manage = Social.get_manage!(id)
+    changeset = Social.change_manage(manage)
+    render(conn, "edit.html", manage: manage, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "manage" => manage_params}) do
     manage = Social.get_manage!(id)
 
-    with {:ok, %Manage{} = manage} <- Social.update_manage(manage, manage_params) do
-      render(conn, "show.json", manage: manage)
+    case Social.update_manage(manage, manage_params) do
+      {:ok, manage} ->
+        conn
+        |> put_flash(:info, "Manage updated successfully.")
+        |> redirect(to: manage_path(conn, :show, manage))
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "edit.html", manage: manage, changeset: changeset)
     end
   end
 
   def delete(conn, %{"id" => id}) do
     manage = Social.get_manage!(id)
-    with {:ok, %Manage{}} <- Social.delete_manage(manage) do
-      send_resp(conn, :no_content, "")
-    end
+    {:ok, _manage} = Social.delete_manage(manage)
+
+    conn
+    |> put_flash(:info, "Manage deleted successfully.")
+    |> redirect(to: manage_path(conn, :index))
   end
 end
