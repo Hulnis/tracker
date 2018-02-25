@@ -5,7 +5,7 @@ defmodule TrackerWeb.UserController do
   alias Tracker.Accounts.User
 
   def index(conn, _params) do
-    users = Accounts.list_users()
+    users = Accounts.list_users()=
     render(conn, "index.html", users: users)
   end
 

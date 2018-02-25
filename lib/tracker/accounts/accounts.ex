@@ -35,7 +35,11 @@ defmodule Tracker.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(id), do
+    Repo.get!(User, id)
+    |> Repo.preload(:managed_by)
+    |> Repo.preload(:worker_managed)
+  end
 
   def get_user(id), do: Repo.get(User, id)
 

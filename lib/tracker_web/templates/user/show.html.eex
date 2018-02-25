@@ -12,6 +12,25 @@
     <%= @user.name %>
   </li>
 
+  <li>
+    <strong>Managed By:</strong>
+    <%= if @user.managed_by do %>
+      <%= link @user.managed_by.name, to: user_path(@conn, :show, @user.managed_by) %>
+    <% else %>
+      <span>No Manager. This user is god!</span>
+    <% end %>
+  </li>
+  <li>
+    <%= if @user.workers_managed do %>
+      <strong>Workers Managed</strong>
+      <%= for user <- @user.worker_managed %>
+        <li><%= user.name %></li>
+      <% end %>
+    <% else %>
+      <span>No users managed. This user is a lowly peon.</span>
+    <% end %>
+  </li>
+
 </ul>
 
 <span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span>
