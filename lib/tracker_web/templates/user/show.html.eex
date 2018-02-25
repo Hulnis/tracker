@@ -31,6 +31,8 @@
     <% end %>
   </li>
 
+  <li><%= manages_path(@conn, :index) %></li>
+
 </ul>
 
 <span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span>
