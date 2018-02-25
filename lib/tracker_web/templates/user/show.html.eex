@@ -31,7 +31,7 @@
     <% end %>
   </li>
 
-  <li><%= manages_path(@conn, :index) %></li>
+  <li><%= manage_path(@conn, :index) %></li>
 
 </ul>
 
