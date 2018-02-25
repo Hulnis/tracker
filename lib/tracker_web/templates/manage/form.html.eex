@@ -6,6 +6,18 @@
   <% end %>
 
   <div class="form-group">
+    <%= label f, :manager_name, class: "control-label" %>
+    <%= text_input f, :manager_name, class: "form-control" %>
+    <%= error_tag f, :manager_name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :worker_name, class: "control-label" %>
+    <%= text_input f, :worker_name, class: "form-control" %>
+    <%= error_tag f, :worker_name %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

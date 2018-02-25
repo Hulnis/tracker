@@ -3,14 +3,15 @@
 <table class="table">
   <thead>
     <tr>
-
-      <th></th>
+      <th>Manager</th>
+      <th>Worker</th>
     </tr>
   </thead>
   <tbody>
 <%= for manage <- @manages do %>
     <tr>
-
+      td><%= manage.manager %></td>
+      <td><%= manage.worker %></td>
       <td class="text-right">
         <span><%= link "Show", to: manage_path(@conn, :show, manage), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Edit", to: manage_path(@conn, :edit, manage), class: "btn btn-default btn-xs" %></span>
@@ -22,3 +23,5 @@
 </table>
 
 <span><%= link "New Manage", to: manage_path(@conn, :new) %></span>
+<span>|</span>
+<span><%= link "To Feed", to: page_path(@conn, :feed) %></span>
