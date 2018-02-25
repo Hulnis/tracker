@@ -3,8 +3,8 @@ defmodule Tracker.Repo.Migrations.CreateManages do
 
   def change do
     create table(:manages) do
-      add :manager_id, references(:user, on_delete: :nothing)
-      add :worker_id, references(:user, on_delete: :nothing)
+      add :manager_id, on_delete: :delete_all), null: false
+      add :worker_id, on_delete: :delete_all), null: false
 
       timestamps()
     end

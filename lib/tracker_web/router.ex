@@ -28,7 +28,8 @@ defmodule TrackerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", TrackerWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", TrackerWeb do
+    pipe_through :api
+    resources "/manages", ManageController, except: [:new, :edit]
+  end
 end
