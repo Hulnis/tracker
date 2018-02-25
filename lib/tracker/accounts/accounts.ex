@@ -36,14 +36,9 @@ defmodule Tracker.Accounts do
 
   """
   def get_user!(id) do
-    user = Repo.get!(User, id)
+    Repo.get!(User, id)
     |> Repo.preload(:managed_by)
-    IO.puts("------user1-------")
-    IO.inspect(user)
-    user = Repo.preload(user, :worker_managed)
-    IO.puts("------user2-------")
-    IO.inspect(user)
-    user
+    |> Repo.preload(:worker_managed)
   end
 
   def get_user(id), do: Repo.get(User, id)
