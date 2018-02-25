@@ -40,7 +40,7 @@ defmodule Tracker.Accounts do
     |> Repo.preload(:managed_by)
     IO.puts("------user1-------")
     IO.inspect(user)
-    user = Repo.preload(user, :worker_managed_manage)
+    user = Repo.preload(user, :worker_managed)
     IO.puts("------user2-------")
     IO.inspect(user)
     user
