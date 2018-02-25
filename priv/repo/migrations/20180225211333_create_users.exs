@@ -5,6 +5,7 @@ defmodule Tracker.Repo.Migrations.CreateUsers do
     create table(:users) do
       add :email, :string, null: false
       add :name, :string, null: false
+      add :is_manager, :boolean, null: false, default: false
       add :managed_by_id, references(:users, on_delete: :delete_all), default: nil
 
       timestamps()
