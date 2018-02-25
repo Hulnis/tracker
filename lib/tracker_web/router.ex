@@ -22,14 +22,14 @@ defmodule TrackerWeb.Router do
 
     resources "/users", UserController
     resources "/tasks", TasksController
+    resources "/manages", ManageController
 
     post "/session", SessionController, :create
     delete "/session", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.
-  scope "/api/v1", TrackerWeb do
-    pipe_through :api
-    resources "/manages", ManageController, except: [:new, :edit]
-  end
+  # scope "/api/v1", TrackerWeb do
+  #   pipe_through :api
+  # end
 end
