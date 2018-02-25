@@ -8,6 +8,7 @@ defmodule Tracker.Accounts.User do
   schema "users" do
     field :email, :string
     field :name, :string
+    field :is_manager, :boolean
     belongs_to :managed_by, User
     has_many :worker_managed_manage, Manage, foreign_key: :manager_id
     has_many :worker_managed, through: [:worker_managed_manage, :worker]
@@ -18,7 +19,7 @@ defmodule Tracker.Accounts.User do
   @doc false
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:email, :name])
-    |> validate_required([:email, :name])
+    |> cast(attrs, [:email, :name, :is_manager])
+    |> validate_required([:email, :name, :is_manager])
   end
 end

@@ -18,6 +18,12 @@
   </div>
 
   <div class="form-group">
+    <%= label f, "Is manager: ", class: "control-label" %>
+    <%= checkbox f, :is_manager  %>
+    <%= error_tag f, :is_manager %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
