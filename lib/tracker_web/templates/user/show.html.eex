@@ -21,7 +21,7 @@
     <% end %>
   </li>
   <li>
-    <%= if @user.worker_managed and @user.worker_managed != [] do %>
+    <%= if @user.worker_managed != nil and @user.worker_managed != [] do %>
       <strong>Workers Managed</strong>
       <%= for user <- @user.worker_managed do %>
         <li><%= user.name %></li>
