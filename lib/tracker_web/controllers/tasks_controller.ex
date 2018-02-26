@@ -44,7 +44,8 @@ defmodule TrackerWeb.TasksController do
 
   def show(conn, %{"id" => id}) do
     tasks = Social.get_tasks!(id)
-    render(conn, "show.html", tasks: tasks)
+    time_blocks = Repo.all(from t in Tracker.Social.TimeBlocks where t.id == id)
+    render(conn, "show.html", tasks: tasks, time_blocks: time_blocks)
   end
 
   def edit(conn, %{"id" => id}) do

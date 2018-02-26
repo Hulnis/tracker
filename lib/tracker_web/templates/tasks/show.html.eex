@@ -41,7 +41,7 @@
 
   <li>
     <strong>Time Blocks:</strong>
-
+      <%= @time_blocks %>
     </ul>
   </li>
 </ul>
