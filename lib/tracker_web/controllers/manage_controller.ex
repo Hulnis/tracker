@@ -20,6 +20,8 @@ defmodule TrackerWeb.ManageController do
 
     worker = Accounts.get_user_by_name(worker_name)
     if (worker != nil) do
+      IO.puts("---worker---")
+      IO.inspect(worker)
       if (!worker.managed_by) do
         manage_params = Map.put(manage_params, "worker_id", worker.id)
         case Social.create_manage(manage_params) do
