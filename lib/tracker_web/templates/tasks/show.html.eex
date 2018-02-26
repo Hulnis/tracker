@@ -51,7 +51,6 @@
 <span><%= link "Back", to: tasks_path(@conn, :index) %></span>
 
 <!--
-<%= for block <- @tasks.timeblocks do %>
   <div class="card">
     <div class="card-body">
       <h6 class="card-title">Time Block</h6>
@@ -61,5 +60,4 @@
       <p>Delete</p>
     </div>
   </div>
-<% end %>
 -->
