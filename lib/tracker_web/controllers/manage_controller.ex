@@ -3,6 +3,7 @@ defmodule TrackerWeb.ManageController do
 
   alias Tracker.Social
   alias Tracker.Social.Manage
+  alias Tracker.Social.Accounts
 
   def index(conn, _params) do
     manages = Social.list_manages()

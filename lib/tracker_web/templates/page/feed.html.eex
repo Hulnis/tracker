@@ -41,5 +41,7 @@
 <span><%= link "All Tasks", to: tasks_path(@conn, :index) %></span>
 <span>|</span>
 <span><%= link "All Users", to: user_path(@conn, :index) %></span>
-<span>|</span>
-<span><%= link "All Manages", to: manage_path(@conn, :index) %></span>
+<%= if task.assigned_user do %>
+  <span>|</span>
+  <span><%= link "Manage User", to: manage_path(@conn, :index) %></span>
+<% end %>
