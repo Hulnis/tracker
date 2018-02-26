@@ -30,8 +30,10 @@ defmodule TrackerWeb.ManageController do
           render(conn, "new.html", changeset: changeset)
       end
     else
+      changeset = Social.change_manage(%Manage{})
       conn
-      |> put_flash(:error "User already has a manager")
+      |> put_flash(:error, "User already has a manager")
+      |> render("new.html", changeset)
     end
   end
 
