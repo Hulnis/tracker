@@ -9,13 +9,13 @@ defmodule Tracker.Repo.Migrations.CreateTasks do
       add :user_id, references(:users, on_delete: :delete_all), null: false
       add :assigned_user_id, references(:users), default: nil
       add :is_complete, :boolean, default: false
-      add :time_blocks, references(:time_blocks, on_delete: :delete_all)
+      add :time_blocks, references(:timeblocks, on_delete: :delete_all)
 
       timestamps()
     end
 
     create index(:tasks, [:assigned_user_id])
     create index(:tasks, [:user_id])
-    create index(:tasks, [:time_blocks])
+    create index(:tasks, [:timeblocks])
   end
 end
