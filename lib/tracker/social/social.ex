@@ -212,6 +212,6 @@ defmodule Tracker.Social do
 
 
   def get_tasks_for(id_list) do
-    Repo.all(from t in Tasks, where t.assigned_user.id in ^id_list)
+    Repo.all(from t in Tasks, where: t.assigned_user.id in ^id_list)
   end
 end
