@@ -24,6 +24,7 @@ defmodule TrackerWeb.ManageController do
       IO.inspect(worker)
       if (worker.managed_by == nil) do
         manage_params = Map.put(manage_params, "worker_id", worker.id)
+        manage_params = Map.put(manage_params, "manager_id", conn.assigns[:current_user].id)
         case Social.create_manage(manage_params) do
           {:ok, manage} ->
             conn
