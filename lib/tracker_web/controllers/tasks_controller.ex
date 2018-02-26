@@ -50,10 +50,10 @@ defmodule TrackerWeb.TasksController do
     assigned_user = Accounts.get_user_by_name(name).id
     if (conn.assigns[:current_user].id == assigned_user.managed_by.id and name != "") do
       tasks_params = Map.put(tasks_params, "assigned_user_id", assigned_user)
-      conn = conn.put_flash(:info "Task Assigned")
+      conn = conn.put_flash(:info, "Task Assigned")
     else
       tasks_params = Map.put(tasks_params, "assigned_user_id", nil)
-      conn = conn.put_flash(:error "Error assigning task")
+      conn = conn.put_flash(:error, "Error assigning task")
     end
 
     time_spent = String.to_integer(tasks_params["time_spent"])
