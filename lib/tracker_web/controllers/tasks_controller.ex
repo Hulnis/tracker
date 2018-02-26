@@ -47,8 +47,9 @@ defmodule TrackerWeb.TasksController do
   def update(conn, %{"id" => id, "tasks" => tasks_params}) do
     tasks = Social.get_tasks!(id)
     name = tasks_params["assigned_user"]
-    assigned_user = Accounts.get_user_by_name(name).id
-    if (assigned_user.managed_by != nil and conn.assigns[:current_user].id == assigned_user.managed_by.id and name != "") do
+    assigned_user = Accounts.get_user_by_name(name)
+    if (assigned_user != nill and assigned_user.managed_by != nil and
+      conn.assigns[:current_user].id == assigned_user.managed_by.id and name != "") do
       tasks_params = Map.put(tasks_params, "assigned_user_id", assigned_user)
       conn = conn.put_flash(:info, "Task Assigned")
     else
