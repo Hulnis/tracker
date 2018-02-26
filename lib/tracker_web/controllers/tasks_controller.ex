@@ -4,6 +4,7 @@ defmodule TrackerWeb.TasksController do
   alias Tracker.Social
   alias Tracker.Social.Tasks
   alias Tracker.Accounts
+  alias tracker.Social.TimeBlock
 
   def index(conn, _params) do
     tasks = Social.list_tasks()
@@ -44,7 +45,7 @@ defmodule TrackerWeb.TasksController do
 
   def show(conn, %{"id" => id}) do
     tasks = Social.get_tasks!(id)
-    time_blocks = Repo.all(from t in Tracker.Social.TimeBlocks, where: t.id == ^tasks.id)
+    time_blocks = Repo.all(from t in TimeBlock, where: t.id == ^id)
     render(conn, "show.html", tasks: tasks, time_blocks: time_blocks)
   end
 
