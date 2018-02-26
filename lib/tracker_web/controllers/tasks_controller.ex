@@ -60,25 +60,22 @@ defmodule TrackerWeb.TasksController do
     end
 
     time_spent = String.to_integer(tasks_params["time_spent"])
-    if (conn.assigns[:current_user].id != tasks.assigned_user.id) do
 
+    # if (rem(time_spent, 15) == 0) do
+    #   tasks_params = Map.put(tasks_params, "time_spent", time_spent)
+    case Social.update_tasks(tasks, tasks_params) do
+      {:ok, tasks} ->
+        conn
+        |> put_flash(:info, "Tasks updated successfully.")
+        |> redirect(to: tasks_path(conn, :show, tasks))
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "edit.html", tasks: tasks, changeset: changeset)
     end
-
-    if (rem(time_spent, 15) == 0) do
-      tasks_params = Map.put(tasks_params, "time_spent", time_spent)
-      case Social.update_tasks(tasks, tasks_params) do
-        {:ok, tasks} ->
-          conn
-          |> put_flash(:info, "Tasks updated successfully.")
-          |> redirect(to: tasks_path(conn, :show, tasks))
-        {:error, %Ecto.Changeset{} = changeset} ->
-          render(conn, "edit.html", tasks: tasks, changeset: changeset)
-      end
-    else
-      changeset = Social.change_tasks(tasks)
-      conn = put_flash(conn, :error, "Must increment time by 15")
-      render(conn, "edit.html", tasks: tasks, changeset: changeset)
-    end
+    # else
+    #   changeset = Social.change_tasks(tasks)
+    #   conn = put_flash(conn, :error, "Must increment time by 15")
+    #   render(conn, "edit.html", tasks: tasks, changeset: changeset)
+    # end
   end
 
   def delete(conn, %{"id" => id}) do
