@@ -25,10 +25,10 @@ defmodule TrackerWeb.TasksController do
         conn.assigns[:current_user].id == assigned_user.managed_by.id) do
         tasks_params = Map.put(tasks_params, "assigned_user_id", assigned_user.id)
       else
-        changeset = Social.change_tasks(tasks)
+        changeset = Social.change_tasks(%Tasks{})
         conn
         |> put_flash(:error, "Error updating assigned user")
-        |> render("edit.html", changeset: changeset)
+        |> render("new.html", changeset: changeset)
       end
     end
 
