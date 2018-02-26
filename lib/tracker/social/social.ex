@@ -209,4 +209,9 @@ defmodule Tracker.Social do
   def change_manage(%Manage{} = manage) do
     Manage.changeset(manage, %{})
   end
+
+
+  def get_tasks_for(id_list) do
+    Repo.all(from t in Tasks, where t.assigned_user.id in ^id_list)
+  end
 end
