@@ -58,7 +58,7 @@ defmodule Tracker.Accounts do
     workers_managed = user.worker_managed
     id_list = Enum.map(workers_managed, fn(worker) -> worker.id end)
 
-    Repo.all(from t in Tracker.SocialTasks, where t.assigned_user.id in ^id_list)
+    Repo.all(from t in Tracker.Social.Tasks, where t.assigned_user.id in ^id_list)
   end
   @doc """
   Creates a user.
