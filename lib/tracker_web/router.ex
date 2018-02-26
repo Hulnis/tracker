@@ -30,7 +30,8 @@ defmodule TrackerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api/v1", TrackerWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", TrackerWeb do
+    pipe_through :api
+    resources "/timeblocks", TimeBlockController, except: [:new, :edit]
+  end
 end
