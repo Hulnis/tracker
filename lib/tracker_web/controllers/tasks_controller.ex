@@ -48,9 +48,9 @@ defmodule TrackerWeb.TasksController do
     tasks = Social.get_tasks!(id)
     name = tasks_params["assigned_user"]
     assigned_user = Accounts.get_user_by_name(name)
-    if (assigned_user != nil) do
-      if (assigned_user.managed_by != nil and
-        conn.assigns[:current_user].id == assigned_user.managed_by.id and name != "") do
+    if (name != "" ) do
+      if (assigned_user.managed_by != nil and assigned_user != nil and
+        conn.assigns[:current_user].id == assigned_user.managed_by.id) do
         tasks_params = Map.put(tasks_params, "assigned_user_id", assigned_user)
         conn = put_flash(conn, :info, "Task Assigned")
       else
@@ -60,8 +60,11 @@ defmodule TrackerWeb.TasksController do
     end
 
     time_spent = String.to_integer(tasks_params["time_spent"])
+    if (conn.assigns[:current_user].id != tasks.assigned_user.id) do
 
-    if rem(time_spent, 15) == 0 and tasks.assigned_user != nil and conn.assigns[:current_user].id == tasks.assigned_user.id do
+    end
+
+    if (rem(time_spent, 15) == 0) do
       tasks_params = Map.put(tasks_params, "time_spent", time_spent)
       case Social.update_tasks(tasks, tasks_params) do
         {:ok, tasks} ->
@@ -73,7 +76,7 @@ defmodule TrackerWeb.TasksController do
       end
     else
       changeset = Social.change_tasks(tasks)
-      new_changeset = Ecto.Changeset.add_error(changeset, :time_spent, "Must increment by 15")
+      conn = put_flash(conn, :error, "Must increment time by 15")
       IO.inspect(new_changeset)
       render(conn, "edit.html", tasks: tasks, changeset: new_changeset)
     end
