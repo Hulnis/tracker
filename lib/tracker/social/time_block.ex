@@ -2,12 +2,13 @@ defmodule Tracker.Social.TimeBlock do
   use Ecto.Schema
   import Ecto.Changeset
   alias Tracker.Social.TimeBlock
+  alias Tracker.Social.Tasks
 
 
   schema "timeblocks" do
     field :start_time, :naive_datetime
     field :stop_time, :naive_datetime
-    field :task_id, :id
+    belongs_to :task_id, Tasks
 
     timestamps()
   end

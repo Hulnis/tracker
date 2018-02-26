@@ -35,6 +35,4 @@
 <%= if @current_user.is_manager do %>
   <span>|</span>
   <span><%= link "Manage Users", to: manage_path(@conn, :index) %></span>
-  <span>|</span>
-  <span><%= link "Task Report", to: page_path(@conn, :task_report) %></span>
 <% end %>
