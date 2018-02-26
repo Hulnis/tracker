@@ -19,21 +19,27 @@ defmodule TrackerWeb.ManageController do
     worker_name = manage_params["worker_name"]
 
     worker = Accounts.get_user_by_name(worker_name)
-
-    if (!worker.managed_by) do
-      manage_params = Map.put(manage_params, "worker_id", worker.id)
-      case Social.create_manage(manage_params) do
-        {:ok, manage} ->
-          conn
-          |> put_flash(:info, "Manage created successfully.")
-          |> redirect(to: manage_path(conn, :show, manage))
-        {:error, %Ecto.Changeset{} = changeset} ->
-          render(conn, "new.html", changeset: changeset)
+    if (worker != nil) do
+      if (!worker.managed_by) do
+        manage_params = Map.put(manage_params, "worker_id", worker.id)
+        case Social.create_manage(manage_params) do
+          {:ok, manage} ->
+            conn
+            |> put_flash(:info, "Manage created successfully.")
+            |> redirect(to: manage_path(conn, :show, manage))
+          {:error, %Ecto.Changeset{} = changeset} ->
+            render(conn, "new.html", changeset: changeset)
+        end
+      else
+        changeset = Social.change_manage(%Manage{})
+        conn
+        |> put_flash(:error, "User already has a manager")
+        |> render("new.html", changeset)
       end
     else
       changeset = Social.change_manage(%Manage{})
       conn
-      |> put_flash(:error, "User already has a manager")
+      |> put_flash(:error, "User not found")
       |> render("new.html", changeset)
     end
   end

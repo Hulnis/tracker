@@ -43,5 +43,5 @@
 <span><%= link "All Users", to: user_path(@conn, :index) %></span>
 <%= if @current_user.is_manager do %>
   <span>|</span>
-  <span><%= link "Manage User", to: manage_path(@conn, :index) %></span>
+  <span><%= link "Manage Users", to: manage_path(@conn, :index) %></span>
 <% end %>
