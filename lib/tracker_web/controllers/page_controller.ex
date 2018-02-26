@@ -13,6 +13,6 @@ defmodule TrackerWeb.PageController do
 
   def feed(conn, _params) do
     tasks = Tracker.Accounts.get_tasks_of_workers(conn.assigns[:current_user])
-    render conn, "task_report.html", tasks: tasks)
+    render conn, "task_report.html", tasks: tasks
   end
 end
