@@ -55,7 +55,7 @@ defmodule Tracker.Accounts do
   def get_tasks_of_workers(user) do
     user = Repo.preload(user, :worker_managed)
     workers_managed = user.worker_managed
-    id_list = Enum.map(workers_managed, fn(worker) -> worker.id)
+    id_list = Enum.map(workers_managed, fn(worker) -> worker.id end)
 
     Repo.all(from t in Tracker.Social.Tasks, where t.assigned_user.id in ^id_list)
   end
