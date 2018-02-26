@@ -17,12 +17,21 @@ defmodule TrackerWeb.TasksController do
 
   def create(conn, %{"tasks" => tasks_params}) do
     tasks_params = Map.put(tasks_params, "user_id", conn.assigns[:current_user].id)
+
     name = tasks_params["assigned_user"]
-    tasks_params = if (name != "") do
-       Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
-     else
-       tasks_params
-     end
+    assigned_user = Accounts.get_user_by_name(name)
+    if (name != "" ) do
+      if (assigned_user != nil and assigned_user.managed_by != nil and
+        conn.assigns[:current_user].id == assigned_user.managed_by.id) do
+        tasks_params = Map.put(tasks_params, "assigned_user_id", assigned_user.id)
+      else
+        changeset = Social.change_tasks(tasks)
+        conn
+        |> put_flash(:error, "Error updating assigned user")
+        |> render("edit.html", changeset: changeset)
+      end
+    end
+
     case Social.create_tasks(tasks_params) do
       {:ok, tasks} ->
         conn
@@ -48,16 +57,15 @@ defmodule TrackerWeb.TasksController do
     tasks = Social.get_tasks!(id)
     name = tasks_params["assigned_user"]
     assigned_user = Accounts.get_user_by_name(name)
-    IO.puts("---name---")
-    IO.inspect(name)
-    IO.puts("---assigned_user---")
-    IO.inspect(assigned_user)
     if (name != "" ) do
       if (assigned_user != nil and assigned_user.managed_by != nil and
         conn.assigns[:current_user].id == assigned_user.managed_by.id) do
         tasks_params = Map.put(tasks_params, "assigned_user_id", assigned_user.id)
       else
-        tasks_params = Map.put(tasks_params, "assigned_user_id", nil)
+        changeset = Social.change_tasks(tasks)
+        conn
+        |> put_flash(:error, "Error updating assigned user")
+        |> render("edit.html", changeset: changeset)
       end
     end
     IO.puts("---tasks_params---")

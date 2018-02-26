@@ -1,13 +1,4 @@
-<%= if @current_user do %>
-  <div class="row">
-    <div class="col">
-      <%= render TrackerWeb.TasksView, "form.html",
-          Map.put(assigns, :action, tasks_path(@conn, :create)) %>
-    </div>
-  </div>
-<% end %>
-
-<h1>Your Feed</h1>
+<h1>Tasks Report</h1>
 
 <%= Enum.map @tasks, fn task -> %>
 <div class="row">
