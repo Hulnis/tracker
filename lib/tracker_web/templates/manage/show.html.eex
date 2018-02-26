@@ -1,7 +1,15 @@
 <h2>Show Manage</h2>
 
 <ul>
+  <li>
+    <strong>Manager Name:</strong>
+    <%= link @manage.manager.name, to: user_path(@conn, :show, @manage.manager) %>
+  </li>
 
+  <li>
+    <strong>Worker Name:</strong>
+    <%= link @manage.worker.name, to: user_path(@conn, :show, @manage.worker) %>
+  </li>
 </ul>
 
 <span><%= link "Edit", to: manage_path(@conn, :edit, @manage) %></span>

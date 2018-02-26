@@ -137,7 +137,11 @@ defmodule Tracker.Social do
       ** (Ecto.NoResultsError)
 
   """
-  def get_manage!(id), do: Repo.get!(Manage, id)
+  def get_manage!(id) do
+     Repo.get!(Manage, id)
+     |> Repo.preload(:manager)
+     |> Repo.preload(:worker)
+   end
 
   @doc """
   Creates a manage.
