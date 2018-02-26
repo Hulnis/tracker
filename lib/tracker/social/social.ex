@@ -213,7 +213,7 @@ defmodule Tracker.Social do
 
   def get_tasks_for(id_list) do
     Repo.all(from t in Tasks,
-      preload: :assigned_user
+      preload: :assigned_user,
       where: t.assigned_user_id in ^id_list)
   end
 end
