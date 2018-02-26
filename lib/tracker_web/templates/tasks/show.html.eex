@@ -39,23 +39,27 @@
     <% end %>
   </li>
 
-  <!-- <li>
+  <li>
     <strong>Time Blocks:</strong>
-      <%= for block <- @tasks.timeblocks do %>
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">Time Block</h6>
-            <h6 class="card-title">Start Time: <%= block.start_time %></h6>
-            <h6 class="card-title">Stop Time: <%= block.stop_time %></h6>
-            <p>Update</p>
-            <p>Delete</p>
-          </div>
-        </div>
-      <% end %>
+
     </ul>
-  </li> -->
+  </li>
 </ul>
 
 <span><%= link "Edit", to: tasks_path(@conn, :edit, @tasks) %></span>
 <span>|</span>
 <span><%= link "Back", to: tasks_path(@conn, :index) %></span>
+
+<!--
+<%= for block <- @tasks.timeblocks do %>
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Time Block</h6>
+      <h6 class="card-title">Start Time: <%= block.start_time %></h6>
+      <h6 class="card-title">Stop Time: <%= block.stop_time %></h6>
+      <p>Update</p>
+      <p>Delete</p>
+    </div>
+  </div>
+<% end %>
+-->
