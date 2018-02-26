@@ -13,7 +13,7 @@ defmodule Tracker.Social.Tasks do
     belongs_to :assigned_user, Tracker.Accounts.User
     belongs_to :user, Tracker.Accounts.User
 
-    has_many :timeblocks, TimeBlock, foreign_key: :task_id
+    has_many :timeblocks, TimeBlock
 
     timestamps()
   end
