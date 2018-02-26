@@ -316,4 +316,8 @@ defmodule Tracker.Social do
   def change_time_block(%TimeBlock{} = time_block) do
     TimeBlock.changeset(time_block, %{})
   end
+
+  def get_time_blocks_for_task(id) do
+    Repo.all(from t in TimeBlock, where: t.id == ^id)
+  end
 end
