@@ -121,6 +121,8 @@ defmodule Tracker.Social do
   """
   def list_manages do
     Repo.all(Manage)
+    |> Repo.preload(:manager)
+    |> Repo.preload(:worker)
   end
 
   @doc """
