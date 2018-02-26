@@ -77,7 +77,7 @@ defmodule TrackerWeb.TasksController do
     else
       changeset = Social.change_tasks(tasks)
       conn = put_flash(conn, :error, "Must increment time by 15")
-      render(conn, "edit.html", tasks: tasks, changeset: new_changeset)
+      render(conn, "edit.html", tasks: tasks, changeset: changeset)
     end
   end
 
