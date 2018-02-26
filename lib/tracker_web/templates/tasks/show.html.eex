@@ -39,7 +39,7 @@
     <% end %>
   </li>
 
-  <li>
+  <!-- <li>
     <strong>Time Blocks:</strong>
       <%= for block <- @tasks.timeblocks do %>
         <div class="card">
@@ -53,7 +53,7 @@
         </div>
       <% end %>
     </ul>
-  </li>
+  </li> -->
 </ul>
 
 <span><%= link "Edit", to: tasks_path(@conn, :edit, @tasks) %></span>
