@@ -41,7 +41,7 @@
 
   <li>
     <strong>Time Blocks:</strong>
-      <%= for block <- @tasks.time_blocks do %>
+      <%= for block <- @tasks.timeblocks do %>
         <div class="card">
           <div class="card-body">
             <h6 class="card-title">Time Block</h6>
