@@ -55,7 +55,7 @@ defmodule TrackerWeb.TasksController do
     if (name != "" ) do
       if (assigned_user != nil and assigned_user.managed_by != nil and
         conn.assigns[:current_user].id == assigned_user.managed_by.id) do
-        tasks_params = Map.put(tasks_params, "assigned_user_id", assigned_user)
+        tasks_params = Map.put(tasks_params, "assigned_user_id", assigned_user.id)
       else
         tasks_params = Map.put(tasks_params, "assigned_user_id", nil)
       end
