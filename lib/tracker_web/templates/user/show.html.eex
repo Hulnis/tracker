@@ -30,7 +30,7 @@
     <%= if @user.worker_managed != nil and @user.worker_managed != [] do %>
       <ul>
         <%= for user <- @user.worker_managed do %>
-          <%= link user.name, to: user_path(@conn, :show, @user) %>
+          <%= link user.name, to: user_path(@conn, :show, user) %>
         <% end %>
       </ul>
     <% else %>

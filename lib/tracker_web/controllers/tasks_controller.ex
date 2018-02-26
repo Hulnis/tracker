@@ -53,15 +53,15 @@ defmodule TrackerWeb.TasksController do
     IO.puts("---assigned_user---")
     IO.inspect(assigned_user)
     if (name != "" ) do
-      if (assigned_user.managed_by != nil and assigned_user != nil and
+      if (assigned_user != nil and assigned_user.managed_by != nil and
         conn.assigns[:current_user].id == assigned_user.managed_by.id) do
         tasks_params = Map.put(tasks_params, "assigned_user_id", assigned_user)
-        conn = put_flash(conn, :info, "Task Assigned")
       else
         tasks_params = Map.put(tasks_params, "assigned_user_id", nil)
-        conn = put_flash(conn, :info, "Task Assignment Not Updated")
       end
     end
+    IO.puts("---tasks_params---")
+    IO.inspect(tasks_params)
 
     time_spent = String.to_integer(tasks_params["time_spent"])
 
