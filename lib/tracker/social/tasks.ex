@@ -22,6 +22,6 @@ defmodule Tracker.Social.Tasks do
   def changeset(%Tasks{} = tasks, attrs) do
     tasks
     |> cast(attrs, [:body, :title, :user_id, :assigned_user_id, :is_complete])
-    |> validate_required([:body, :title, :time_spent])
+    |> validate_required([:body, :title])
   end
 end
