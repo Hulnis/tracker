@@ -5,11 +5,11 @@ defmodule Tracker.Repo.Migrations.CreateTimeblocks do
     create table(:timeblocks) do
       add :start_time, :naive_datetime
       add :stop_time, :naive_datetime
-      add :task, references(:tasks, on_delete: :delete_all), null: false
+      add :task_id, references(:tasks, on_delete: :delete_all), null: false
 
       timestamps()
     end
 
-    create index(:tasks, [:task])
+    create index(:timeblocks, [:task_id])
   end
 end
