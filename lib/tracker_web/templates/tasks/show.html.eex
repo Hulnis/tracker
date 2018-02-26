@@ -54,8 +54,8 @@
   <div class="card">
     <div class="card-body">
       <h6 class="card-title">Time Block</h6>
-      <h6 class="card-title">Start Time: <%= block.start_time %></h6>
-      <h6 class="card-title">Stop Time: <%= block.stop_time %></h6>
+      <h6 class="card-title">Start Time: </h6>
+      <h6 class="card-title">Stop Time: <</h6>
       <p>Update</p>
       <p>Delete</p>
     </div>
