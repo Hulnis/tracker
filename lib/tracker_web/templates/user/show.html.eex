@@ -28,9 +28,11 @@
   <li>
     <strong>Workers Managed:</strong>
     <%= if @user.worker_managed != nil and @user.worker_managed != [] do %>
-      <%= for user <- @user.worker_managed do %>
-        <li><%= user.name %></li>
-      <% end %>
+      <ul>
+        <%= for user <- @user.worker_managed do %>
+          <%= link user.name, to: user_path(@conn, :show, @user) %>
+        <% end %>
+      </ul>
     <% else %>
       <span>No users managed</span>
     <% end %>
