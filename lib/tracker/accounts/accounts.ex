@@ -49,6 +49,7 @@ defmodule Tracker.Accounts do
 
   def get_user_by_name(name) do
     Repo.get_by(User, name: name)
+    |> Repo.preload(:managed_by)
   end
   @doc """
   Creates a user.
