@@ -9,7 +9,7 @@ defmodule Tracker.Accounts.User do
     field :email, :string
     field :name, :string
     field :is_manager, :boolean
-    has_one :managed_by_manage, User, foreign_key: :worker_id
+    has_one :managed_by_manage, Manage, foreign_key: :worker_id
     has_one :managed_by, through: [:managed_by_manage, :manager]
     has_many :worker_managed_manage, Manage, foreign_key: :manager_id
     has_many :worker_managed, through: [:worker_managed_manage, :worker]
