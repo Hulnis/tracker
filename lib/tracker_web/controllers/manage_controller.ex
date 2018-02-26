@@ -15,12 +15,12 @@ defmodule TrackerWeb.ManageController do
   end
 
   def create(conn, %{"manage" => manage_params}) do
-    worker_name = tasks_params["worker_name"]
+    worker_name = manage_params["worker_name"]
 
     worker = Accounts.get_user_by_name(worker_name)
 
     if (!worker.managed_by) do
-      tasks_params = Map.put(tasks_params, "worker_id", worker.id)
+      manage_params = Map.put(manage_params, "worker_id", worker.id)
       case Social.create_manage(manage_params) do
         {:ok, manage} ->
           conn
