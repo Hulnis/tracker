@@ -10,7 +10,7 @@
   <tbody>
 <%= for manage <- @manages do %>
     <tr>
-      td><%= manage.manager %></td>
+      <td><%= manage.manager %></td>
       <td><%= manage.worker %></td>
       <td class="text-right">
         <span><%= link "Show", to: manage_path(@conn, :show, manage), class: "btn btn-default btn-xs" %></span>
