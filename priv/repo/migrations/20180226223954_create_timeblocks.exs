@@ -8,7 +8,5 @@ defmodule Tracker.Repo.Migrations.CreateTimeblocks do
 
       timestamps()
     end
-
-    create index(:timeblocks, [:task_id])
   end
 end
