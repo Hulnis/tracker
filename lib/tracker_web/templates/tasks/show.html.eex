@@ -31,12 +31,28 @@
   </li>
 
   <li>
-    <strong>Status</strong>
+    <strong>Status:</strong>
     <%= if @tasks.is_complete do %>
       Complete
     <% else %>
       Not Complete
     <% end %>
+  </li>
+
+  <li>
+    <strong>Time Blocks:</strong>
+      <%= for block <- @tasks.time_blocks do %>
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Time Block</h6>
+            <h6 class="card-title">Start Time: <%= block.start_time %></h6>
+            <h6 class="card-title">Stop Time: <%= block.stop_time %></h6>
+            <p>Update</p>
+            <p>Delete</p>
+          </div>
+        </div>
+      <% end %>
+    </ul>
   </li>
 </ul>
 

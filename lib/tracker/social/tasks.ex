@@ -2,6 +2,7 @@ defmodule Tracker.Social.Tasks do
   use Ecto.Schema
   import Ecto.Changeset
   alias Tracker.Social.Tasks
+  alias Tracker.Social.TimeBlock
 
 
   schema "tasks" do
@@ -11,6 +12,8 @@ defmodule Tracker.Social.Tasks do
     field :is_complete, :boolean
     belongs_to :assigned_user, Tracker.Accounts.User
     belongs_to :user, Tracker.Accounts.User
+
+    has_many :time_blocks, TimeBlock, foreign_key: :task_id
 
     timestamps()
   end

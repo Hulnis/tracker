@@ -41,6 +41,7 @@ defmodule Tracker.Social do
     Repo.get!(Tasks, id)
     |> Repo.preload(:user)
     |> Repo.preload(:assigned_user)
+    |> Repo.preload(:time_block)
   end
 
   @doc """
