@@ -47,7 +47,7 @@
   <li>
     <strong>Time Blocks:</strong>
     <span>
-      <button class="follow-button btn btn-default">
+      <button class="new-task-button btn btn-default">
         New
       </button>
     </span>
