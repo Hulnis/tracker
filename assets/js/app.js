@@ -24,8 +24,8 @@ import $ from "jquery"
 function new_time_block() {
   let text = JSON.stringify({
     time_block: {
-        start_time: 0,
-        stop_time: 0,
+        start_time: Date.now(),
+        stop_time: Date.now(),
         task_id: task_id
       },
   })
