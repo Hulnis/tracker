@@ -1,4 +1,4 @@
-defmodule Tracker.Repo.Migrations.CreateTimeblocks do
+defmodule Tracker.Repo.Migrations.AlterTimeblocks do
   use Ecto.Migration
 
   def change do
