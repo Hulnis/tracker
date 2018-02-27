@@ -6,8 +6,8 @@ defmodule Tracker.Social.TimeBlock do
 
 
   schema "timeblocks" do
-    field :start_time, :naive_datetime
-    field :stop_time, :naive_datetime
+    field :start_time, :utc_datetime
+    field :stop_time, :utc_datetime
     belongs_to :task, Tasks
 
     timestamps()
