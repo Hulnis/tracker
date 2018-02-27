@@ -40,7 +40,7 @@ function new_time_block() {
 }
 
 function click_handler() {
-  $(".new_task_button").click(new_time_block);
+  $(".new-task-button").click(new_time_block);
 }
 
 $(click_handler);
