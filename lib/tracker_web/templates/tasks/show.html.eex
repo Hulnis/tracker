@@ -1,5 +1,10 @@
 <h2><%= @tasks.title %></h2>
 
+<script>
+  window.timeblock_path = "<%= timeblock_path(@conn, :index) %>"
+  window.task_id = "<%= @tasks.id %>";
+</script>
+
 <ul>
   <li>
     <strong>Body:</strong>
@@ -41,7 +46,12 @@
 
   <li>
     <strong>Time Blocks:</strong>
-      <%= @time_blocks %>
+    <span>
+      <button class="follow-button btn btn-default">
+        New
+      </button>
+    </span>
+    <%= @time_blocks %>
     </ul>
   </li>
 </ul>

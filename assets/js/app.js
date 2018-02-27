@@ -12,6 +12,7 @@
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
+import $ from "jquery"
 
 // Import local files
 //
@@ -19,3 +20,27 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+function new_time_block() {
+  let text = JSON.stringify({
+    time_block: {
+        start_time: 0,
+        stop_time: 0,
+        task_id: task_id
+      },
+  })
+
+  $.ajax(timeblock_path, {
+    method: "post",
+    dataType: "json",
+    contentType: "application/json; charset=UTF-8",
+    data: text,
+    success: (resp) => { console.log(resp) },
+  })
+}
+
+function click_handler() {
+  $(".new_task_button").click(new_time_block);
+}
+
+$(click_handler);
