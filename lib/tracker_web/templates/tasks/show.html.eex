@@ -1,7 +1,7 @@
 <h2><%= @tasks.title %></h2>
 
 <script>
-  window.timeblock_path = "<%= timeblock_path(@conn, :index) %>"
+  window.timeblock_path = "<%= time_block_path(@conn, :index) %>"
   window.task_id = "<%= @tasks.id %>";
 </script>
 
