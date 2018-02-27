@@ -15,8 +15,8 @@ defmodule TrackerWeb.TimeBlockController do
     start_time = time_block_params["start_time"]
     stop_time = time_block_params["stop_time"]
 
-    time_block_params = Map.put(time_block_params, "start_time", ~N[start_time])
-    time_block_params = Map.put(time_block_params, "stop_time",  ~N[stop_time])
+    # time_block_params = Map.put(time_block_params, "start_time", ~N[start_time])
+    # time_block_params = Map.put(time_block_params, "stop_time",  ~N[stop_time])
 
     with {:ok, %TimeBlock{} = time_block} <- Social.create_time_block(time_block_params) do
       conn
