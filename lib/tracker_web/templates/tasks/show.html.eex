@@ -2,9 +2,7 @@
 
 <script>
   window.timeblock_path = "<%= time_block_path(@conn, :index) %>"
-  window.task_id = "<%= @tasks.id %>";
-  console.log("date now" Date.now());
-  console.log("date now iso" Date.now().toISOString());
+  window.task_id = "<%= @tasks.id %>"
 </script>
 
 <ul>
