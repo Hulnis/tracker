@@ -56,7 +56,7 @@
         <div class="card-body"><h6 class="card-title">TimeBlock:</h6>
           <div class="form-group">
             <span>Start time:</span>
-            <input type="text" id="<%= "start-time-form-" + to_string(time_block.id %>)" value="<%= time_block.start_time %>">
+            <input type="text" id="<%= "start-time-form-" + to_string(time_block.id) %>" value="<%= time_block.start_time %>">
           </div>
           <div class="form-group">
             <span>Stop time:</span>
