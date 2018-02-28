@@ -43,7 +43,6 @@ function new_time_block() {
 function update_time_block(ev) {
   let btn = $(ev.target);
   let timeblock_id = btn.data('timeblock-id');
-  console.log("start-time-form" + timeblock_id)
   let new_start_time = document.getElementById("start-time-form-" + timeblock_id).value
   let new_stop_time = document.getElementById("stop-time-form-" + timeblock_id).value
 
@@ -55,7 +54,7 @@ function update_time_block(ev) {
       },
   })
 
-  $.ajax(timeblock_path, {
+  $.ajax(timeblock_path + "/update", {
     method: "post",
     dataType: "json",
     contentType: "application/json; charset=UTF-8",
