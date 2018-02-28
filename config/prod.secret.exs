@@ -8,14 +8,14 @@ use Mix.Config
 # file or create a script for recreating it, since it's
 # kept out of version control and might be hard to recover
 # or recreate for your teammates (or yourself later on).
-config :tracker, TrackerWeb.Endpoint,
+config :tracker2, TrackerWeb.Endpoint,
   secret_key_base: "bG74+4l+35Thfr+nFTlMc3dD4J8q2Vmk9zv9tJ3ZT0f11RhlctH7m8POKAFumInQ"
 
 # Configure your database
-config :tracker, Tracker.Repo,
+config :tracker2, Tracker.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "tracker",
   password: "postgres_prod_password",
-  database: "tracker_prod",
+  database: "tracker_prod2",
   hostname: "localhost",
   pool_size: 15
