@@ -53,6 +53,6 @@ config :tracker, Tracker.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "tracker",
   password: "postgres_prod_password",
-  database: "tracker_dev",
+  database: "tracker_dev2",
   hostname: "localhost",
   pool_size: 10

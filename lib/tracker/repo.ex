@@ -1,5 +1,5 @@
 defmodule Tracker.Repo do
-  use Ecto.Repo, otp_app: :tracker
+  use Ecto.Repo, otp_app: :tracker2
 
   @doc """
   Dynamically loads the repository url from the
