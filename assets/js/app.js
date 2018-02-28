@@ -44,8 +44,8 @@ function update_time_block(ev) {
   let btn = $(ev.target);
   let timeblock_id = btn.data('timeblock-id');
   console.log("start-time-form" + timeblock_id)
-  let new_start_time = document.getElementById("start-time-form" + timeblock_id).value
-  let new_stop_time = document.getElementById("stop-time-form" + timeblock_id).value
+  let new_start_time = document.getElementById("start-time-form-" + timeblock_id).value
+  let new_stop_time = document.getElementById("stop-time-form-" + timeblock_id).value
 
   let text = JSON.stringify({
     time_block: {
