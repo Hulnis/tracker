@@ -57,7 +57,7 @@
         <div class="card-body"><h6 class="card-title">TimeBlock:</h6></div>
         <div class="card-body">
           <h6 class="card-title">
-            Time Spent: <%= DateTime.diff(time_block.start_time, time_block.stop_time) %>
+            Time Spent: <%= DateTime.diff(time_block.start_time, time_block.stop_time) %> minutes
           </h6>
         </div>
         <div class="form-group">
@@ -67,7 +67,6 @@
         <div class="form-group">
           <span>Stop time:</span>
           <input type="text" id="<%= "stop-time-form-" <> to_string(time_block.id) %>" value="<%= time_block.stop_time %>">
-        </div>
         </div>
         <span>
           <button class="update-task-button btn btn-default"

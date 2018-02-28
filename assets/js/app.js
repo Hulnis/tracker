@@ -35,7 +35,7 @@ function new_time_block() {
     dataType: "json",
     contentType: "application/json; charset=UTF-8",
     data: text,
-    success: (resp) => { console.log(resp) },
+    success: (resp) => { location.reload() },
   })
 }
 
@@ -59,7 +59,7 @@ function update_time_block(ev) {
     dataType: "json",
     contentType: "application/json; charset=UTF-8",
     data: text,
-    success: (resp) => { console.log(resp) },
+    success: (resp) => { location.reload() },
   })
 }
 
@@ -72,7 +72,7 @@ function delete_time_block(ev) {
     dataType: "json",
     contentType: "application/json; charset=UTF-8",
     data: "",
-    success: (resp) => { console.log(resp) },
+    success: (resp) => { location.reload() },
   })
 }
 
