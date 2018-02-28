@@ -37,7 +37,7 @@ if [ -d ~/www/tracker1 ]; then
 fi
 
 mkdir -p ~/www/tracker1
-REL_TAR=~/src/tracker/_build/prod/rel/tracker1/releases/0.0.1/tracker1.tar.gz
+REL_TAR=~/src/tracker/_build/prod/rel/tracker2/releases/0.0.1/tracker2.tar.gz
 (cd ~/www/tracker1 && tar xzvf $REL_TAR)
 
 crontab - <<CRONTAB
