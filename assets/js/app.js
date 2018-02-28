@@ -23,6 +23,7 @@ import $ from "jquery"
 
 function new_time_block() {
   console.log("date now" Date.now())
+    console.log("date now iso" Date.now().toISOString())
   let text = JSON.stringify({
     time_block: {
         start_time: Date.now(),
