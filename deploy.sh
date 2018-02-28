@@ -2,7 +2,7 @@
 
 export PORT=5103
 export MIX_ENV=prod
-export GIT_PATH=/home/tracker2/src/tracker
+export GIT_PATH=/home/tracker1/src/tracker
 
 PWD=`pwd`
 if [ $PWD != $GIT_PATH ]; then
