@@ -14,7 +14,7 @@ config :tracker, TrackerWeb.Endpoint,
 # Configure your database
 config :tracker, Tracker.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "tracker2",
+  username: "tracker1",
   password: "postgres_prod_password",
   database: "tracker_prod",
   hostname: "localhost",
