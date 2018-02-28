@@ -57,7 +57,7 @@
         <div class="card-body"><h6 class="card-title">TimeBlock:</h6></div>
         <div class="card-body">
           <h6 class="card-title">
-            Time Spent: <%= DateTime.diff(time_block.start_time, time_block.stop_time %>
+            Time Spent: <%= DateTime.diff(time_block.start_time, time_block.stop_time) %>
           </h6>
         </div>
         <div class="form-group">
