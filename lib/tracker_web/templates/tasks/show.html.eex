@@ -51,35 +51,34 @@
         New
       </button>
     </span>
-    <%= Enum.count(@time_blocks) %>
     <%= for time_block <- @time_blocks do %>
       <div class="card">
-        <div class="card-body"><h6 class="card-title">TimeBlock:</h6></div>
         <div class="card-body">
+          <h6 class="card-title">TimeBlock: <%= time_block.id</h6>
           <h6 class="card-title">
             Time Spent: <%= DateTime.diff(time_block.start_time, time_block.stop_time) %> minutes
           </h6>
+          <div class="form-group">
+            <span>Start time:</span>
+            <input type="text" id="<%= "start-time-form-" <> to_string(time_block.id) %>" value="<%= time_block.start_time %>">
+          </div>
+          <div class="form-group">
+            <span>Stop time:</span>
+            <input type="text" id="<%= "stop-time-form-" <> to_string(time_block.id) %>" value="<%= time_block.stop_time %>">
+          </div>
+          <span>
+            <button class="update-task-button btn btn-default"
+                    data-timeblock-id="<%= time_block.id %>">
+              Update
+            </button>
+          </span>
+          <span>
+            <button class="delete-task-button btn btn-danger"
+                    data-timeblock-id="<%= time_block.id %>">
+              Delete
+            </button>
+          </span>
         </div>
-        <div class="form-group">
-          <span>Start time:</span>
-          <input type="text" id="<%= "start-time-form-" <> to_string(time_block.id) %>" value="<%= time_block.start_time %>">
-        </div>
-        <div class="form-group">
-          <span>Stop time:</span>
-          <input type="text" id="<%= "stop-time-form-" <> to_string(time_block.id) %>" value="<%= time_block.stop_time %>">
-        </div>
-        <span>
-          <button class="update-task-button btn btn-default"
-                  data-timeblock-id="<%= time_block.id %>">
-            Update
-          </button>
-        </span>
-        <span>
-          <button class="delete-task-button btn btn-default"
-                  data-timeblock-id="<%= time_block.id %>">
-            Delete
-          </button>
-        </span>
       </div>
     <% end %>
     </ul>
