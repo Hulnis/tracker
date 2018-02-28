@@ -6,11 +6,11 @@
 use Mix.Config
 
 # General application configuration
-config :tracker2,
+config :tracker,
   ecto_repos: [Tracker.Repo]
 
 # Configures the endpoint
-config :tracker2, TrackerWeb.Endpoint,
+config :tracker, TrackerWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "n06zp4NCRA13yp+NzE5z7a3SlucJEn7pxgtmF3gRNazFZdai7oAWeBQxwpLlcG8I",
   render_errors: [view: TrackerWeb.ErrorView, accepts: ~w(html json)],

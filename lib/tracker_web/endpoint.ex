@@ -1,5 +1,5 @@
 defmodule TrackerWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :tracker2
+  use Phoenix.Endpoint, otp_app: :tracker
 
   socket "/socket", TrackerWeb.UserSocket
 
