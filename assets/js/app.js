@@ -22,7 +22,6 @@ import $ from "jquery"
 // import socket from "./socket"
 
 function new_time_block() {
-
   let text = JSON.stringify({
     time_block: {
         start_time: Date.now(),
