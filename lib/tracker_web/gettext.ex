@@ -20,5 +20,5 @@ defmodule TrackerWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :tracker
+  use Gettext, otp_app: :tracker2
 end
