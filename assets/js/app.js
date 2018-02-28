@@ -63,10 +63,24 @@ function update_time_block(ev) {
   })
 }
 
+function delete_time_block(ev) {
+  let btn = $(ev.target);
+  let timeblock_id = btn.data('timeblock-id');
+
+  $.ajax(timeblock_path + "/" + timeblock_id, {
+    method: "delete",
+    dataType: "json",
+    contentType: "application/json; charset=UTF-8",
+    data: "",
+    success: (resp) => { console.log(resp) },
+  })
+}
+
 
 function click_handler() {
   $(".new-task-button").click(new_time_block);
   $(".update-task-button").click(update_time_block);
+  $(".delete-task-button").click(delete_time_block);
 }
 
 $(click_handler);

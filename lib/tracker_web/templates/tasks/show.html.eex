@@ -66,9 +66,14 @@
         </div>
         <span>
           <button class="update-task-button btn btn-default"
-                  data-timeblock-id="<%= time_block.id %>"
-                  data-timeblock-start="<%= time_block.start_time %>">
+                  data-timeblock-id="<%= time_block.id %>">
             Update
+          </button>
+        </span>
+        <span>
+          <button class="delete-task-button btn btn-default"
+                  data-timeblock-id="<%= time_block.id %>">
+            Delete
           </button>
         </span>
       </div>

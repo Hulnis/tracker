@@ -320,4 +320,11 @@ defmodule Tracker.Social do
   def get_time_blocks_for_task(id) do
     Repo.all(from t in TimeBlock, where: t.id == ^id)
   end
+
+  def print_all_time_blocks() do
+    blocks = Repo.all(TimeBlocks)
+    IO.puts("------blocks--------")
+    IO.inspect(blocks)
+    IO.puts("------blocks--------")
+  end
 end
