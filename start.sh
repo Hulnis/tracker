@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PORT=5102
+export PORT=5103
 
 cd ~/www/tracker
 ./bin/tracker stop || true

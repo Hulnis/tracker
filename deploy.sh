@@ -1,8 +1,8 @@
 #!/bin/bash
 
-export PORT=5102
+export PORT=5103
 export MIX_ENV=prod
-export GIT_PATH=/home/tracker/src/tracker
+export GIT_PATH=/home/tracker2/src/tracker
 
 PWD=`pwd`
 if [ $PWD != $GIT_PATH ]; then
@@ -25,7 +25,7 @@ mix ecto.migrate
 mix phx.digest
 # mix release --env=prod
 
-PORT=5102 MIX_ENV=prod elixir --detached -S mix phx.server
+PORT=5103 MIX_ENV=prod elixir --detached -S mix phx.server
 
 # mkdir -p ~/www
 # mkdir -p ~/old
