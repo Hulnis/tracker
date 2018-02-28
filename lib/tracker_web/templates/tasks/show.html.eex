@@ -55,14 +55,14 @@
       <div class="card">
         <div class="card-body">
           <div class="form-group">
-            <%= label f, :start_time, class: "control-label" %>
-            <%= text_input f, :start_time, class: "form-control", value: time_block.start_time %>
-            <%= error_tag f, :start_time %>
+            <%= label :time_block, :start_time, class: "control-label" %>
+            <%= text_input :time_block,  :start_time, class: "form-control", value: time_block.start_time %>
+            <%= error_tag :time_block,  :start_time %>
           </div>
           <div class="form-group">
-            <%= label f, :stop_time, class: "control-label" %>
-            <%= text_input f, :stop_time, class: "form-control", value: time_block.stop_time %>
-            <%= error_tag f, :stop_time %>
+            <%= label :time_block, :stop_time, class: "control-label" %>
+            <%= text_input :time_block, :stop_time, class: "form-control", value: time_block.stop_time %>
+            <%= error_tag :time_block, :stop_time %>
           </div>
         </div>
       </div>
