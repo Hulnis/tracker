@@ -54,7 +54,7 @@ function update_time_block(ev) {
       },
   })
 
-  $.ajax(timeblock_path + "/update", {
+  $.ajax(timeblock_path + "/" + timeblock_id, {
     method: "post",
     dataType: "json",
     contentType: "application/json; charset=UTF-8",
