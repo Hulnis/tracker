@@ -31,14 +31,14 @@ mkdir -p ~/www
 mkdir -p ~/old
 
 NOW=`date +%s`
-if [ -d ~/www/tracker ]; then
-	echo mv ~/www/tracker ~/old/$NOW
-	mv ~/www/tracker ~/old/$NOW
+if [ -d ~/www/tracker1 ]; then
+	echo mv ~/www/tracker1 ~/old/$NOW
+	mv ~/www/tracker1 ~/old/$NOW
 fi
 
-mkdir -p ~/www/tracker
-REL_TAR=~/src/tracker/_build/prod/rel/tracker/releases/0.0.1/tracker.tar.gz
-(cd ~/www/tracker && tar xzvf $REL_TAR)
+mkdir -p ~/www/tracker1
+REL_TAR=~/src/tracker1/_build/prod/rel/tracker1/releases/0.0.1/tracker1.tar.gz
+(cd ~/www/tracker1 && tar xzvf $REL_TAR)
 
 crontab - <<CRONTAB
 @reboot bash /home/tracker/src/tracker/start.sh

@@ -2,6 +2,6 @@
 
 export PORT=5103
 
-cd ~/www/tracker
-./bin/tracker stop || true
-./bin/tracker start
+cd ~/www/tracker1
+./bin/tracker1 stop || true
+./bin/tracker1 start
