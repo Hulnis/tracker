@@ -322,7 +322,7 @@ defmodule Tracker.Social do
   end
 
   def print_all_time_blocks() do
-    blocks = Repo.all(TimeBlocks)
+    blocks = Repo.all(TimeBlock)
     IO.puts("------blocks--------")
     IO.inspect(blocks)
     IO.puts("------blocks--------")
