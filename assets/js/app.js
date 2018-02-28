@@ -40,7 +40,7 @@ function new_time_block() {
 }
 
 
-function update_time_block() {
+function update_time_block(ev) {
   let btn = $(ev.target);
   let timeblock_id = btn.data('timeblock-id');
   let start_time = btn.data('timeblock-start')
