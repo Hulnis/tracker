@@ -11,7 +11,7 @@ if [ $PWD != $GIT_PATH ]; then
 	exit 1
 fi
 
-if [ $USER != "tracker" ]; then
+if [ $USER != "tracker1" ]; then
 	echo "Error: must run as user 'tracker'"
 	echo "  Current user is $USER"
 	exit 2
