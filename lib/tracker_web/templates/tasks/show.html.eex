@@ -51,6 +51,7 @@
         New
       </button>
     </span>
+    <%= Enum.count(@time_blocks) %>
     <%= for time_block <- @time_blocks do %>
       <div class="card">
         <div class="card-body"><h6 class="card-title">TimeBlock:</h6>
