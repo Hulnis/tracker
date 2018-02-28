@@ -52,7 +52,7 @@ config :phoenix, :stacktrace_depth, 20
 config :tracker, Tracker.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "tracker",
-  password: "Oop0Haegh4qu",
+  password: "postgres_prod_password",
   database: "tracker_dev",
   hostname: "localhost",
   pool_size: 10
