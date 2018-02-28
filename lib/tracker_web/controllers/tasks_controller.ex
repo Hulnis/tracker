@@ -47,6 +47,8 @@ defmodule TrackerWeb.TasksController do
     tasks = Social.get_tasks!(id)
     Tracker.Social.print_all_time_blocks()
     time_blocks = Tracker.Social.get_time_blocks_for_task(id)
+    IO.puts("time blocks in show ---")
+    IO.inspect(time_blocks)
     render(conn, "show.html", tasks: tasks, time_blocks: time_blocks)
   end
 
