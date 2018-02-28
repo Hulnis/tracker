@@ -54,7 +54,7 @@
     <%= for time_block <- @time_blocks do %>
       <div class="card">
         <div class="card-body">
-          <h6 class="card-title">TimeBlock: <%= time_block.id</h6>
+          <h6 class="card-title">TimeBlock: <%= time_block.id %> </h6>
           <h6 class="card-title">
             Time Spent: <%= DateTime.diff(time_block.start_time, time_block.stop_time) %> minutes
           </h6>
