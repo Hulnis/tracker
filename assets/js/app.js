@@ -22,8 +22,6 @@ import $ from "jquery"
 // import socket from "./socket"
 
 function new_time_block() {
-  console.log("date now" Date.now())
-  console.log("date now iso" Date.now().toISOString())
 
   let text = JSON.stringify({
     time_block: {
