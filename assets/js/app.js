@@ -39,8 +39,33 @@ function new_time_block() {
   })
 }
 
+
+function update_time_block() {
+  let btn = $(ev.target);
+  let timeblock_id = btn.data('timeblock-id');
+  let start_time = btn.data('timeblock-start')
+
+  let text = JSON.stringify({
+    time_block: {
+        start_time: new Date().toISOString(),
+        stop_time: new Date().toISOString(),
+        task_id: task_id
+      },
+  })
+
+  $.ajax(timeblock_path, {
+    method: "post",
+    dataType: "json",
+    contentType: "application/json; charset=UTF-8",
+    data: text,
+    success: (resp) => { console.log(resp) },
+  })
+}
+
+
 function click_handler() {
   $(".new-task-button").click(new_time_block);
+  $(".update-task-button").click(update_time_block);
 }
 
 $(click_handler);

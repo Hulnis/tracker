@@ -53,7 +53,7 @@
     </span>
     <%= for time_block <- @time_blocks do %>
       <div class="card">
-        <div class="card-body">
+        <div class="card-body"><h6 class="card-title">TimeBlock:<%= task.title %></h6>
           <div class="form-group">
             <%= label :time_block, :start_time, class: "control-label" %>
             <%= text_input :time_block, :start_time, value: time_block.start_time %>
@@ -63,6 +63,13 @@
             <%= text_input :time_block, :stop_time, value: time_block.start_time %>
           </div>
         </div>
+        <span>
+          <button class="update-task-button btn btn-default"
+                  data-timeblock-id="<%= time_block.id %>"
+                  data-timeblock-start="<%= time_block.start_time %>">
+            Update
+          </button>
+        </span>
       </div>
     <% end %>
     </ul>
