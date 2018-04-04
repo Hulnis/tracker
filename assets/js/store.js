@@ -4,6 +4,7 @@ import deepFreeze from 'deep-freeze'
 function tasks(state = [], action) {
   switch (action.type) {
   case 'TASKS_LIST':
+    console.log("main tasks lists")
     return [...action.tasks]
   case 'ADD_TASK':
     return [action.task, ...state]
