@@ -5,6 +5,8 @@ defmodule TrackerWeb.TasksController do
   alias Tracker.Social.Tasks
   alias Tracker.Accounts
 
+  action_fallback TrackerWeb.FallbackController
+
   def index(conn, _params) do
     tasks = Social.list_tasks()
     render(conn, "index.json", tasks: tasks)
