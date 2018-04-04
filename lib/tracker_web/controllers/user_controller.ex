@@ -12,6 +12,11 @@ defmodule TrackerWeb.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
+    p = Comeonin.Argon2.hashpwsalt(user_params["password"])
+    Map.put(user_params, "password_hash", p)
+    IO.puts("-----create user-----")
+    IO.inspect(user_params)
+    IO.puts("-----create user-----")
     with {:ok, %User{} = user} <- Accounts.create_user(user_params) do
       conn
       |> put_status(:created)
