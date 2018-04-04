@@ -16,7 +16,7 @@ function Task(params) {
     let tgt = $(ev.target)
 
     let form_data = {}
-    form_data[tgt.attr('name')] = target.tpye === 'checkbox' ? target.checked : tgt.val()
+    form_data[tgt.attr('name')] = ev.target.tpye === 'checkbox' ? ev.target.checked : tgt.val()
 
     let data = {}
     data["id"] = params.task.id
