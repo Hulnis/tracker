@@ -45,15 +45,18 @@ function task_form(state = empty_task_form, action) {
 }
 
 let empty_task_update_form = {
-  forms: {}
+
 }
 
 function edit_task_form(state = empty_task_update_form, action) {
   switch (action.type) {
-    case 'EDIT_UPDATE_FORM':
-      return Object.assign({}, state[action.data.id], action.data.update)
-    case 'EDIT_CLEAR_FORM':
-      return Object.assign({}, state, empty_task_form)
+    case 'UPDATE_EDIT_FORM':
+      if(state[action.data.id]) {
+        return Object.assign({}, state[action.data.id], action.data.update)
+      } else {
+        Object.assign({}, state, {action.data.id}, {})
+        return Object.assign({}, state[action.data.id], action.data.update)
+      }
     case 'SET_TOKEN':
       return Object.assign({}, state, action.token)
     default:
