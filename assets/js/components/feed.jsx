@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from './post'
+import Task from './task'
 
 export default function Feed(params) {
   console.log("feed params", params)
