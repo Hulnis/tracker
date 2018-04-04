@@ -5,6 +5,10 @@ defmodule TrackerWeb.TokenController do
   action_fallback TrackerWeb.FallbackController
 
   def create(conn, %{"name" => name, "pass" => pass}) do
+    IO.put("-----name and pass-----")
+    IO.inspect(name)
+    IO.inspect(pass)
+    IO.put("-----name and pass-----")
     with {:ok, %User{} = user} <- Tracker.Accounts.get_and_auth_user(name, pass) do
       token = Phoenix.Token.sign(conn, "auth token", user.id)
       conn

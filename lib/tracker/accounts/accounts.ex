@@ -49,6 +49,9 @@ defmodule Tracker.Accounts do
 
   def get_and_auth_user(name, pass) do
     user = Repo.one(from u in User, where: u.name == ^name)
+    IO.put("-----user-----")
+    IO.put(user)
+    IO.put("-----user-----")
     Comeonin.Argon2.check_pass(user, pass)
   end
 
