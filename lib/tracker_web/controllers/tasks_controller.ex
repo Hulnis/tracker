@@ -9,6 +9,9 @@ defmodule TrackerWeb.TasksController do
 
   def index(conn, _params) do
     tasks = Social.list_tasks()
+    IO.puts("---- tasks ----")
+    IO.inspect(tasks)
+    IO.puts("---- tasks ----")
     render(conn, "index.json", tasks: tasks)
   end
 
