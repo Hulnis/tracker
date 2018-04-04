@@ -9,6 +9,8 @@ function Task(params) {
   let task = params.task
 
   function update(ev) {
+    console.log("update", ev)
+    console.log("update", ev.target)
     let tgt = $(ev.target)
 
     let form_data = {}
