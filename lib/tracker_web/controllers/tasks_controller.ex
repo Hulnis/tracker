@@ -64,11 +64,13 @@ defmodule TrackerWeb.TasksController do
     time_spent = String.to_integer(tasks_params["time_spent"])
 
     if rem(time_spent, 15) == 0 and tasks.assigned_user != nil and user_id == tasks.assigned_user.id do
+      IO.puts("yes time")
       tasks_params = Map.put(tasks_params, "time_spent", time_spent)
       with {:ok, %Tasks{} = tasks} <- Social.create_tasks(tasks_params) do
           render(conn, "show.json", tasks: tasks)
       end
     else
+      IO.puts("no time")
       render(conn, "show.json", tasks: tasks)
     end
   end
