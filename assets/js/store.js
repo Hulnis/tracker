@@ -54,7 +54,9 @@ function edit_task_form(state = empty_task_update_form, action) {
       if(state[action.data.id]) {
         return Object.assign({}, state[action.data.id], action.data.update)
       } else {
+        console.log("state1", state)
         state = Object.assign({}, state, {action.data.id: {}})
+        console.log("state2", state)
         return Object.assign({}, state[action.data.id], action.data.update)
       }
     case 'SET_TOKEN':
