@@ -51,11 +51,14 @@ function Task(params) {
   return (
     <Card>
       <CardTitle>Task: {task.title}</CardTitle>
+        <FormGroup>
+          <Input type="checkbox" name="is_complete" value={params.forms[task.id].is_complete} onChange={update} />
+          <Label for="is_complete">Task Complete?</Label>
+        </FormGroup>
       <FormGroup>
-        <Label for="assigned_user">Assign To (optional)</Label>
+        <Label for="assigned_user">Assigned To (optional)</Label>
         <Input type="text" name="assigned_user" onChange={update} value={params.forms[task.id].assigned_user} />
       </FormGroup>
-      <CardTitle>Status: {task.is_complete ? "Complete" : "Not Complete"}</CardTitle>
       <FormGroup>
         <NumericInput step={15} value={params.forms[task.id].time_spent} onChange={updateTime} />
       </FormGroup>

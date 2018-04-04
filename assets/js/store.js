@@ -60,15 +60,16 @@ function edit_task_form(state = empty_task_update_form, action) {
       action.tasks.forEach(function(task) {
         state[task.id] = {
           time_spent: task.time_spent,
-          assigned_user: task.assigned_user ? task.assigned_user : ""
+          assigned_user: task.assigned_user ? task.assigned_user : "",
+          is_complete: task.is_complete
         }
       })
-      console.log("state tasks list", state)
       return state
     case "ADD_TASK":
       state[task.id] = {
         time_spent: task.time_spent,
-        assigned_user: task.assigned_user ? task.assigned_user.name : ""
+        assigned_user: task.assigned_user ? task.assigned_user.name : "",
+        is_complete: task.is_complete
       }
       return state
     case 'SET_TOKEN':
