@@ -20,7 +20,7 @@ defmodule TrackerWeb.UserController do
     IO.puts("-----create user p-----")
     IO.inspect(p)
     IO.puts("-----create user p-----")
-    Map.put(user_params, "password_hash", p)
+    user_params = Map.put(user_params, "password_hash", p)
 
     IO.puts("-----create user2-----")
     IO.inspect(user_params)
