@@ -59,7 +59,7 @@ defmodule Tracker.Social do
     {:ok, tasks} = %Tasks{}
     |> Tasks.changeset(attrs)
     |> Repo.insert()
-    {:ok, Repo.preload(tasks, :user)}
+    {:ok, Repo.preload(tasks, [:user, :assigned_user])}
   end
 
   @doc """
