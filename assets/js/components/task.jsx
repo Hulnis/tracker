@@ -16,7 +16,11 @@ function Task(params) {
     let tgt = $(ev.target)
 
     let form_data = {}
-    form_data[tgt.attr('name')] = ev.target.tpye === 'checkbox' ? ev.target.checked : tgt.val()
+    const value = target.type === 'checkbox' ? target.checked : target.value
+    form_data[ev.target.name] = value
+
+    console.log("value", value)
+    console.log("form_data", form_data)
 
     let data = {}
     data["id"] = params.task.id
