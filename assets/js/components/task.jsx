@@ -44,7 +44,7 @@ function Task(params) {
   }
 
   function submit(ev) {
-    api.submit_task_update(params.forms[task.id], task.id)
+    api.submit_task_update(params.forms[task.id], task.id, params.form.token)
     console.log(params.forms)
   }
 
