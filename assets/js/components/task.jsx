@@ -27,9 +27,9 @@ function Task(params) {
     params.dispatch(action)
   }
 
-  function updateTime(timeAsInt, timeAsString) {
+  function updateTime(timeAsInt) {
     let form_data = {}
-    form_data["time_spent"] = timeAsString
+    form_data["time_spent"] = timeAsInt
 
     let data = {}
     data["id"] = params.task.id

@@ -61,7 +61,7 @@ defmodule TrackerWeb.TasksController do
     else
       Map.put(tasks_params, "assigned_user_id", nil)
     end
-    time_spent = String.to_integer(tasks_params["time_spent"])
+    time_spent = tasks_params["time_spent"]
 
     if rem(time_spent, 15) == 0 and tasks.assigned_user != nil and user_id == tasks.assigned_user.id do
       IO.puts("yes time")
