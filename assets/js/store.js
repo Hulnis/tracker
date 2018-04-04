@@ -44,7 +44,7 @@ function task_form(state = empty_task_form, action) {
   }
 }
 
-let empty_task_update_form =
+let empty_task_update_form = {
   forms: {}
 }
 
