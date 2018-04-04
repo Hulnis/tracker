@@ -18,7 +18,7 @@ defmodule TrackerWeb.TasksView do
       title: tasks.body,
       is_complete: tasks.is_complete,
       time_spent: tasks.time_spent,
-      assigned_user: tasks.assigned_user,
+      assigned_user: tasks.assigned_user.name,
       user: render_one(tasks.user, UserView, "user.json")
     }
   end
