@@ -17,8 +17,10 @@ defmodule TrackerWeb.TasksController do
     render(conn, "new.json", changeset: changeset)
   end
 
-  def create(conn, %{"tasks" => tasks_params}) do
-    tasks_params = Map.put(tasks_params, "user_id", conn.assigns[:current_user].id)
+  def create(conn, %{"tasks" => tasks_params, "token" => token}) do
+    {:ok, user_id} = Phoenix.Token.verify(conn, "auth token", token, max_age: 86400)
+
+    tasks_params = Map.put(tasks_params, "user_id", user_id)
     name = tasks_params["assigned_user"]
     tasks_params = if (name != "") do
        Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
