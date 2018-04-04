@@ -12,13 +12,18 @@ defmodule TrackerWeb.TasksView do
   end
 
   def render("tasks.json", %{tasks: tasks}) do
+    assigned_user = if (tasks.assigned_user) do
+      tasks.assigned_user.name
+    else
+      ""
+    end
     %{
       id: tasks.id,
       body: tasks.body,
       title: tasks.body,
       is_complete: tasks.is_complete,
       time_spent: tasks.time_spent,
-      assigned_user: tasks.assigned_user.name,
+      assigned_user: assigned_user,
       user: render_one(tasks.user, UserView, "user.json")
     }
   end
