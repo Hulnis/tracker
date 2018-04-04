@@ -30,12 +30,13 @@ function Task(params) {
     api.submit_task_update(params.forms[task.id], task.id)
     console.log(params.forms)
   }
-
+  let assigned_user_value = ""
+  let time_spent_value = 0;
   if (params.forms[task.id]) {
-    assigned_user_value = (params.forms[task.id].assigned_user ? params.forms[task.id].assigned_user : "")
-    time_spent_value = (pararms.forms[task.id].time_spent ? params.forms[task.id].time_spent : 0)
+    assigned_user_value = (params.forms[task.id].assigned_user ? params.forms[task.id].assigned_user)
+    time_spent_value = (pararms.forms[task.id].time_spent ? params.forms[task.id].time_spent)
   } else {
-    assigned_user_value = params.task.assigned_user ? params.task.assigned_user.name : ""
+    assigned_user_value = params.task.assigned_user ? params.task.assigned_user.name
     time_spent = params.task.time_spent
   }
 
