@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Card, CardBody, CardTitle } from 'reactstrap'
-import { Button, FormGroup, Label, Input } from 'reactstrap'
+import { Button, FormGroup, Label, Input, Checkbox } from 'reactstrap'
 import NumericInput from 'react-numeric-input';
 import api from '../api'
 
@@ -51,8 +51,9 @@ function Task(params) {
     <Card>
       <CardTitle>Task: {task.title}</CardTitle>
         <FormGroup>
-          <Label for="is_complete">Task Complete?</Label>
-          <Input type="checkbox" name="is_complete" value={params.forms[task.id].is_complete} onChange={update} />
+          <Checkbox name="is_complete" value={params.forms[task.id].is_complete} onChange={update}>
+            Is Complete?
+          </Checkbox>
         </FormGroup>
       <FormGroup>
         <Label for="assigned_user">Assigned To (optional)</Label>
