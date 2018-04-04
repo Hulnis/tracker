@@ -54,12 +54,12 @@ function edit_task_form(state = empty_task_update_form, action) {
       return Object.assign({}, state[action.data.id], action.data.update)
     case "TASKS_LIST":
       action.tasks.forEach(function(task) {
-        state[task.id] = {
+        Object.assign({}, state, {
           time_spent: task.time_spent
           assigned_user: task.assigned_user ? task.assigned_user.name : ""
         }
       })
-      console.log("state1", state)
+      console.log("state1")
       return state
     case "ADD_TASK":
       state[task.id] = {
