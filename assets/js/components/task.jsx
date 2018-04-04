@@ -38,7 +38,7 @@ function Task(params) {
     time_spent_value = pararms.forms[task.id].time_spent ? params.forms[task.id].time_spent : 0
   } else {
     assigned_user_value = params.task.assigned_user ? params.task.assigned_user.name : ""
-    time_spent = params.task.time_spent
+    time_spent_value = params.task.time_spent
   }
 
   return (
