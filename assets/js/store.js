@@ -58,6 +58,7 @@ function edit_task_form(state = empty_task_update_form, action) {
           time_spent: task.time_spent,
           assigned_user: task.assigned_user ? task.assigned_user.name : ""
         })
+      })
       console.log("state tasks list", state)
       return state
     case "ADD_TASK":
