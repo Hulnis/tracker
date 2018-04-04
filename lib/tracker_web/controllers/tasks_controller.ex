@@ -72,7 +72,7 @@ defmodule TrackerWeb.TasksController do
     else
       IO.puts("no time")
       Map.pop(tasks_params, "time_spent")
-      with {:ok, %Tasks{} = tasks} <- Social.update_tasks(task, tasks_params) do
+      with {:ok, %Tasks{} = tasks} <- Social.update_tasks(tasks, tasks_params) do
           render(conn, "show.json", tasks: tasks)
       end
     end
