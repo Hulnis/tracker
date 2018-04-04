@@ -44,7 +44,7 @@ defmodule TrackerWeb.TasksController do
     render(conn, "edit.json", tasks: tasks, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "tasks" => tasks_params}) do
+  def update(conn, %{"id" => id, "tasks" => tasks_params, "token" => token}) do
     {:ok, user_id} = Phoenix.Token.verify(conn, "auth token", token, max_age: 86400)
 
     tasks = Social.get_tasks!(id)
