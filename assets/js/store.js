@@ -63,7 +63,7 @@ let empty_user_form = {
   password: "",
 }
 
-function task_form(state = empty_user_form, action) {
+function user_form(state = empty_user_form, action) {
   switch (action.type) {
     case 'USER_UPDATE_FORM':
       return Object.assign({}, state, action.data)
