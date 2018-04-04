@@ -18,6 +18,7 @@ export default function tracker_init(store) {
 }
 
 let Tracker = connect((state) => state)((props) => {
+  console.log("tracker props", props)
   return (
     <Router>
       <div>
