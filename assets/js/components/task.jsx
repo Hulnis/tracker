@@ -11,7 +11,8 @@ function Task(params) {
   function update(ev) {
     ev.preventDefault()
     console.log("update", ev)
-    console.log("update", ev.target)
+    console.log("update", ev.target.type)
+    console.log("update", ev.target.checked)
     let tgt = $(ev.target)
 
     let form_data = {}
