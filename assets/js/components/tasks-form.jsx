@@ -63,7 +63,7 @@ function TaskForm(props) {
 function state2props(state) {
   console.log("rerender@TaskForm", state)
   return {
-    form: state.form,
+    form: state.task_form,
   }
 }
 

@@ -56,7 +56,7 @@ function UserForm(props) {
 function state2props(state) {
   console.log("rerender@UserForm", state)
   return {
-    form: state.form,
+    form: state.user_form,
   }
 }
 
