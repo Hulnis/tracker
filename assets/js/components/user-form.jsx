@@ -34,14 +34,14 @@ function UserForm(props) {
 
   return (
     <div style={{padding: "4ex"}}>
-      <h2>New Task</h2>
+      <h2>New User</h2>
       <FormGroup>
         <Label for="email">Email</Label>
         <Input type="input" name="email" value={props.form.email} onChange={update} />
       </FormGroup>
       <FormGroup>
         <Label for="name">Name</Label>
-        <Input type="textarea" name="name" value={props.form.name} onChange={update} />
+        <Input type="input" name="name" value={props.form.name} onChange={update} />
       </FormGroup>
       <FormGroup>
         <Label for="password">Password</Label>

@@ -44,7 +44,7 @@ class APIServer {
     });
   }
 
-  submit_task(data) {
+  submit_user(data) {
     $.ajax("/api/v1/user", {
       method: "post",
       dataType: "json",
