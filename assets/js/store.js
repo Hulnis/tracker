@@ -44,6 +44,23 @@ function task_form(state = empty_task_form, action) {
   }
 }
 
+let empty_task_update_form =
+  forms: {}
+}
+
+function edit_task_form(state = empty_task_update_form, action) {
+  switch (action.type) {
+    case 'EDIT_UPDATE_FORM':
+      return Object.assign({}, state[action.data.id], action.data.update)
+    case 'EDIT_CLEAR_FORM':
+      return Object.assign({}, state, empty_task_form)
+    case 'SET_TOKEN':
+      return Object.assign({}, state, action.token)
+    default:
+      return state
+  }
+}
+
 let empty_user_form = {
   name: "",
   email: "",
@@ -90,7 +107,7 @@ function root_reducer(state0, action) {
   console.log("reducer", action)
   // {posts, users, form} is ES6 shorthand for
   // {posts: posts, users: users, form: form}
-  let reducer = combineReducers({tasks, users, task_form, user_form, token, login})
+  let reducer = combineReducers({tasks, users, task_form, user_form, token, login, edit_task_form})
   let state1 = reducer(state0, action)
   console.log("state1", state1)
   return deepFreeze(state1)

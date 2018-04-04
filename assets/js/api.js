@@ -44,6 +44,19 @@ class APIServer {
     });
   }
 
+  submit_task_update(data, id) {
+    data[id] = id
+    $.ajax("/api/v1/tasks/" + id, {
+      method: "post",
+      dataType: "json",
+      contentType: "application/json; charset=UTF-8",
+      data: JSON.stringify({ token: data.token, tasks: data }),
+      success: (resp) => {
+        console.log("updated task")
+      },
+    });
+  }
+
   submit_user(data) {
     $.ajax("/api/v1/users", {
       method: "post",
