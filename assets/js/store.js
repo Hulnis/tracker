@@ -44,12 +44,16 @@ function task_form(state = empty_task_form, action) {
   }
 }
 
-let empty_task_update_form = []
+let empty_task_update_form = {
+  rand: Math.random()
+}
 
 function edit_task_form(state = empty_task_update_form, action) {
   switch (action.type) {
     case 'UPDATE_EDIT_FORM':
-      let newData = {}
+      let newData = {
+        rand: Math.random()
+      }
       newData[action.data.id] = action.data.update
       return Object.assign({}, state, newData)
     case "TASKS_LIST":
