@@ -60,7 +60,7 @@ function edit_task_form(state = empty_task_update_form, action) {
       action.tasks.forEach(function(task) {
         state[task.id] = {
           time_spent: task.time_spent,
-          assigned_user: task.assigned_user ? task.assigned_user.name : ""
+          assigned_user: task.assigned_user ? task.assigned_user : ""
         }
       })
       console.log("state tasks list", state)
