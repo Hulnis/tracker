@@ -43,16 +43,18 @@ defmodule TrackerWeb.TasksController do
   end
 
   def update(conn, %{"id" => id, "tasks" => tasks_params}) do
+    {:ok, user_id} = Phoenix.Token.verify(conn, "auth token", token, max_age: 86400)
+
     tasks = Social.get_tasks!(id)
     name = tasks_params["assigned_user"]
-    tasks_params = if (conn.assigns[:current_user].id == tasks.user.id and name != "") do
+    tasks_params = if (user_id == tasks.user.id and name != "") do
       Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
     else
       Map.put(tasks_params, "assigned_user_id", nil)
     end
     time_spent = String.to_integer(tasks_params["time_spent"])
 
-    if rem(time_spent, 15) == 0 and tasks.assigned_user != nil and conn.assigns[:current_user].id == tasks.assigned_user.id do
+    if rem(time_spent, 15) == 0 and tasks.assigned_user != nil and user_id == tasks.assigned_user.id do
       tasks_params = Map.put(tasks_params, "time_spent", time_spent)
       with {:ok, %Tasks{} = tasks} <- Social.create_tasks(tasks_params) do
           render(conn, "show.json", tasks: tasks)
