@@ -6,7 +6,7 @@ import NumericInput from 'react-numeric-input';
 import api from '../api'
 
 function UserForm(props) {
-  console.log("props@TaskForm", props)
+  console.log("props@UserForm", props)
 
   function update(ev) {
     let tgt = $(ev.target)
