@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Card, CardBody, CardTitle } from 'reactstrap'
 import { Button, FormGroup, Label, Input } from 'reactstrap'
 import NumericInput from 'react-numeric-input';
+import api from '../api'
 
 function Task(params) {
   console.log("Task params", params)

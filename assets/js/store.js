@@ -49,8 +49,10 @@ let empty_task_update_form = []
 function edit_task_form(state = empty_task_update_form, action) {
   switch (action.type) {
     case 'UPDATE_EDIT_FORM':
-      state[action.data.id] = Object.assign({}, state[action.data.id], action.data.update)
-      return state
+      let newData = {
+        action.data.id: action.data.update
+      }
+      return Object.assign({}, state, newData)
     case "TASKS_LIST":
       action.tasks.forEach(function(task) {
         state[task.id] = {
