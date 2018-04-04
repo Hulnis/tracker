@@ -24,7 +24,7 @@ import api from './api'
 
 import tracker_init from "./components/tracker"
 $(function() {
-  api.request_posts()
+  api.request_tasks()
   api.request_users()
   tracker_init(store)
 })
