@@ -51,14 +51,21 @@ let empty_task_update_form = {
 function edit_task_form(state = empty_task_update_form, action) {
   switch (action.type) {
     case 'UPDATE_EDIT_FORM':
-      if(state[action.data.id]) {
-        return Object.assign({}, state[action.data.id], action.data.update)
-      } else {
-        console.log("state1", state)
-        state = Object.assign({}, state, {action.data.id: {}})
-        console.log("state2", state)
-        return Object.assign({}, state[action.data.id], action.data.update)
+      return Object.assign({}, state[action.data.id], action.data.update)
+    case "TASKS_LIST":
+      action.tasks.forEach(function(task) {
+        state[task.id] = {
+          time_spent: task.time_spent
+          assigned_user: task.assigned_user ? task.assigned_user.name : ""
+        }
+      })
+      return state
+    case "ADD_TASK":
+      state[task.id] = {
+        time_spent: task.time_spent
+        assigned_user: task.assigned_user ? task.assigned_user.name : ""
       }
+      return state
     case 'SET_TOKEN':
       return Object.assign({}, state, action.token)
     default:

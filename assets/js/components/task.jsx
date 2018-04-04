@@ -31,26 +31,16 @@ function Task(params) {
     console.log(params.forms)
   }
 
-  var assigned_user_value = ""
-  var time_spent_value = 0;
-  if (params.forms[task.id]) {
-    assigned_user_value = params.forms[task.id].assigned_user ? params.forms[task.id].assigned_user : ""
-    time_spent_value = pararms.forms[task.id].time_spent ? params.forms[task.id].time_spent : 0
-  } else {
-    assigned_user_value = params.task.assigned_user ? params.task.assigned_user.name : ""
-    time_spent_value = params.task.time_spent
-  }
-
   return (
     <Card>
       <CardTitle>Task: {task.title}</CardTitle>
       <FormGroup>
         <Label for="assigned_user">Assign To (optional)</Label>
-        <Input type="text" name="assigned_user" onChange={update} value={assigned_user_value} />
+        <Input type="text" name="assigned_user" onChange={update} value={params.forms[task.id].assigned_user} />
       </FormGroup>
       <CardTitle>Status: {task.is_complete ? "Complete" : "Not Complete"}</CardTitle>
       <FormGroup>
-        <NumericInput step={15} value={time_spent_value} onChange={update} />
+        <NumericInput step={15} value={params.forms[task.id].time_spent} onChange={update} />
       </FormGroup>
       <CardBody>
         <div>
