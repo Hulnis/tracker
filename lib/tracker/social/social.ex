@@ -56,9 +56,10 @@ defmodule Tracker.Social do
 
   """
   def create_tasks(attrs \\ %{}) do
-    %Tasks{}
+    {:ok, tasks} = %Tasks{}
     |> Tasks.changeset(attrs)
     |> Repo.insert()
+    {:ok, Repo.preload(tasks, :user)}
   end
 
   @doc """
