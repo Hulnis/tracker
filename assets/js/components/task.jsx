@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, CardBody, CardTitle } from 'reactstrap'
 
 export default function Task(params) {
+  console.log("Task params", params)
   let task = params.task
   return (
     <Card>

@@ -9,7 +9,6 @@ import Users from './users'
 import TaskForm from './tasks-form'
 
 export default function tracker_init(store) {
-  console.log("tracker_init", store)
   ReactDOM.render(
     <Provider store={store}>
       <Tracker state={store.getState()} />
@@ -19,7 +18,6 @@ export default function tracker_init(store) {
 }
 
 let Tracker = connect((state) => state)((props) => {
-  console.log("tracker props", props)
   return (
     <Router>
       <div>
