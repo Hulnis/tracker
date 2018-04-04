@@ -27,8 +27,16 @@ function Task(params) {
   }
 
   function submit(ev) {
-    api.submit_task_update(params.form[id], id)
-    console.log(params.form)
+    api.submit_task_update(params.forms[task.id], task.id)
+    console.log(params.forms)
+  }
+
+  if (params.forms[task.id]) {
+    assigned_user_value = (params.forms[task.id].assigned_user ? params.forms[task.id].assigned_user : "")
+    time_spent_value = (pararms.forms[task.id].time_spent ? params.forms[task.id].time_spent : 0)
+  } else {
+    assigned_user_value = params.task.assigned_user ? params.task.assigned_user.name : ""
+    time_spent = params.task.time_spent
   }
 
   return (
@@ -36,14 +44,11 @@ function Task(params) {
       <CardTitle>Task: {task.title}</CardTitle>
       <FormGroup>
         <Label for="assigned_user">Assign To (optional)</Label>
-        <Input type="text" name="assigned_user" onChange={update}
-               defaultValue={params.task.assigned_user ? params.task.assigned_user.name : ""}
-               value={params.form[task.id].assigned_user} />
+        <Input type="text" name="assigned_user" onChange={update} value={assigned_user_value} />
       </FormGroup>
       <CardTitle>Status: {task.is_complete ? "Complete" : "Not Complete"}</CardTitle>
       <FormGroup>
-        <NumericInput step={15} value={params.form[task.id].time_spent}
-                      defaultValue={params.task.time_spent} onChange={update} />
+        <NumericInput step={15} value={time_spent_value} onChange={update} />
       </FormGroup>
       <CardBody>
         <div>
@@ -58,7 +63,7 @@ function Task(params) {
 function state2props(state) {
   console.log("rerender@Task", state)
   return {
-    form: state.edit_task_form,
+    forms: state.edit_task_form,
   }
 }
 
