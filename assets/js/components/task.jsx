@@ -31,14 +31,14 @@ function Task(params) {
     console.log(params.forms)
   }
 
-  let assigned_user_value = ""
-  let time_spent_value = 0;
+  var assigned_user_value = ""
+  var time_spent_value = 0;
   if (params.forms[task.id]) {
     assigned_user_value = params.forms[task.id].assigned_user ? params.forms[task.id].assigned_user : ""
     time_spent_value = pararms.forms[task.id].time_spent ? params.forms[task.id].time_spent : 0
   } else {
     assigned_user_value = params.task.assigned_user ? params.task.assigned_user.name : ""
-    time_spent = params.task.time_spent 
+    time_spent = params.task.time_spent
   }
 
   return (
