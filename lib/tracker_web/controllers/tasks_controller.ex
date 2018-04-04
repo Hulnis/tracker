@@ -64,7 +64,7 @@ defmodule TrackerWeb.TasksController do
 
   def delete(conn, %{"id" => id}) do
     tasks = Social.get_tasks!(id)
-    with {:ok, %Post{}} <- Posts.delete_post(post) do
+    with {:ok, %Tasks{}} <- Tasks.delete_tasks(tasks) do
       send_resp(conn, :no_content, "")
     end
   end
