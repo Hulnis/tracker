@@ -22,7 +22,7 @@ function TaskForm(props) {
   }
 
   function submit(ev) {
-    api.submit_TASK(props.form)
+    api.submit_task(props.form)
     console.log(props.form)
   }
 
@@ -61,10 +61,10 @@ function TaskForm(props) {
 }
 
 function state2props(state) {
-  console.log("rerender@PostForm", state)
+  console.log("rerender@TaskForm", state)
   return {
     form: state.form,
   }
 }
 
-export default connect(state2props)(PostForm)
+export default connect(state2props)(TaskForm)
