@@ -17,7 +17,7 @@ defmodule Tracker.Accounts.User do
   @doc false
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:email, :name])
+    |> cast(attrs, [:email, :name, :password, :password_hash])
     |> validate_required([:email, :name])
   end
 end
