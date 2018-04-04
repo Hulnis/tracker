@@ -45,7 +45,7 @@ class APIServer {
   }
 
   submit_user(data) {
-    $.ajax("/api/v1/user", {
+    $.ajax("/api/v1/users", {
       method: "post",
       dataType: "json",
       contentType: "application/json; charset=UTF-8",
