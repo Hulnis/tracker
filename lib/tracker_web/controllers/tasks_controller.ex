@@ -26,10 +26,9 @@ defmodule TrackerWeb.TasksController do
     case Social.create_tasks(tasks_params) do
       {:ok, tasks} ->
         conn
-        |> put_flash(:info, "Tasks created successfully.")
-        |> redirect(to: tasks_path(conn, :show, tasks))
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        |> put_status(:created)
+        |> put_resp_header("location", tasks_path(conn, :show, post))
+        |> render("show.json", tasks: tasks)
     end
   end
 
@@ -58,26 +57,17 @@ defmodule TrackerWeb.TasksController do
       tasks_params = Map.put(tasks_params, "time_spent", time_spent)
       case Social.update_tasks(tasks, tasks_params) do
         {:ok, tasks} ->
-          conn
-          |> put_flash(:info, "Tasks updated successfully.")
-          |> redirect(to: tasks_path(conn, :show, tasks))
-        {:error, %Ecto.Changeset{} = changeset} ->
-          render(conn, "edit.html", tasks: tasks, changeset: changeset)
+          render(conn, "show.json", tasks: tasks)
       end
     else
-      changeset = Social.change_tasks(tasks)
-      new_changeset = Ecto.Changeset.add_error(changeset, :time_spent, "Must increment by 15")
-      IO.inspect(new_changeset)
-      render(conn, "edit.html", tasks: tasks, changeset: new_changeset)
+      render(conn, "show.html", tasks: tasks)
     end
   end
 
   def delete(conn, %{"id" => id}) do
     tasks = Social.get_tasks!(id)
-    {:ok, _tasks} = Social.delete_tasks(tasks)
-
-    conn
-    |> put_flash(:info, "Tasks deleted successfully.")
-    |> redirect(to: tasks_path(conn, :index))
+    with {:ok, %Post{}} <- Posts.delete_post(post) do
+      send_resp(conn, :no_content, "")
+    end
   end
 end
