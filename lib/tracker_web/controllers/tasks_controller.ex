@@ -31,7 +31,7 @@ defmodule TrackerWeb.TasksController do
       conn
       |> put_status(:created)
       |> put_resp_header("location", tasks_path(conn, :show, tasks))
-      |> render("show.json", tasks: Repo.preload(tasks, :user))
+      |> render("show.json", tasks: tasks)
     end
   end
 
@@ -61,7 +61,7 @@ defmodule TrackerWeb.TasksController do
     if rem(time_spent, 15) == 0 and tasks.assigned_user != nil and user_id == tasks.assigned_user.id do
       tasks_params = Map.put(tasks_params, "time_spent", time_spent)
       with {:ok, %Tasks{} = tasks} <- Social.create_tasks(tasks_params) do
-          render(conn, "show.json", tasks: Repo.preload(tasks, :user))
+          render(conn, "show.json", tasks: tasks)
       end
     else
       render(conn, "show.json", tasks: tasks)
