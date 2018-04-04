@@ -31,7 +31,7 @@ let Tracker = connect((state) => state)((props) => {
         <Route path="/users" exact={true} render={() =>
           <Users users={props.users} />
         } />
-      <Route path="/tasks/:task_id" render={({match}) =>
+      <Route path="/users/:user_id" render={({match}) =>
           <Feed tasks={_.filter(props.tasks, (pp) =>
             match.params.user_id == pp.user.id )
           } />
