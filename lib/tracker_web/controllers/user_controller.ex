@@ -4,7 +4,10 @@ defmodule TrackerWeb.UserController do
   alias Tracker.Accounts
   alias Tracker.Accounts.User
 
+  action_fallback TrackerWeb.FallbackController
+
   def index(conn, _params) do
+    IO.puts("-----index-----")
     users = Accounts.list_users()
     render(conn, "index.json", users: users)
   end
