@@ -1,19 +1,6 @@
 import { createStore, combineReducers } from 'redux'
 import deepFreeze from 'deep-freeze'
 
-/*
- *  state layout:
- *  {
- *   posts: [... Posts ...],
- *   users: [... Users ...],
- *   form: {
- *     user_id: null,
- *     body: "",
- *   }
- * }
- *
- * */
-
 function tasks(state = [], action) {
   switch (action.type) {
   case 'TASKS_LIST':

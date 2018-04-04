@@ -34,7 +34,7 @@ class APIServer {
       method: "post",
       dataType: "json",
       contentType: "application/json; charset=UTF-8",
-      data: JSON.stringify({ token: data.token, post: data }),
+      data: JSON.stringify({ token: data.token, tasks: data }),
       success: (resp) => {
         store.dispatch({
           type: 'ADD_TASK',
