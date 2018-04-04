@@ -65,6 +65,8 @@ defmodule Tracker.Accounts do
 
   """
   def create_user(attrs \\ %{}) do
+    p = Comeonin.Argon2.hashpwsalt(attrs["password"])
+    Map.put(attrs, "password_hash", p)
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
