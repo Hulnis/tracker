@@ -18,17 +18,15 @@ defmodule TrackerWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/feed", PageController, :feed
-
-    resources "/users", UserController
-    resources "/tasks", TasksController
-
-    post "/session", SessionController, :create
-    delete "/session", SessionController, :delete
+    get "/users", PageController, :index
+    get "/tasks/:id", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", TrackerWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", TrackerWeb do
+    pipe_through :api
+    resources "/users", UserController, except: [:new, :edit]
+    resources "/tasks", TasksController, except: [:new, :edit]
+    post "/token", TokenController, :create
+  end
 end
