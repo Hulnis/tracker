@@ -69,6 +69,10 @@ defmodule Tracker.Accounts do
   """
   def create_user(attrs \\ %{}) do
     p = Comeonin.Argon2.hashpwsalt(attrs["password"])
+    IO.puts("-----create user-----")
+    IO.inspect(attrs)
+    IO.inspect(p)
+    IO.puts("-----create user-----")
     Map.put(attrs, "password_hash", p)
     %User{}
     |> User.changeset(attrs)
