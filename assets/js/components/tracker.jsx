@@ -25,7 +25,7 @@ let Tracker = connect((state) => state)((props) => {
         <Route path="/" exact={true} render={() =>
           <div>
             <TaskForm />
-            <Feed posts={props.posts} />
+            <Feed tasks={props.tasks} />
           </div>
         } />
         <Route path="/users" exact={true} render={() =>
