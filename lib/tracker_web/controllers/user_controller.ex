@@ -10,11 +10,11 @@ defmodule TrackerWeb.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    case Accounts.create_user(user_params) do
-      {:ok, user} ->
-        |> put_status(:created)
-        |> put_resp_header("location", user_path(conn, :show, user))
-        |> render("show.json", user: user)
+    with {:ok, %User{} = user} <- Users.create_user(user_params) do
+      conn
+      |> put_status(:created)
+      |> put_resp_header("location", user_path(conn, :show, user))
+      |> render("show.json", user: user)
     end
   end
 
@@ -32,9 +32,8 @@ defmodule TrackerWeb.UserController do
   def update(conn, %{"id" => id, "user" => user_params}) do
     user = Accounts.get_user!(id)
 
-    case Accounts.update_user(user, user_params) do
-      {:ok, user} ->
-        render(conn, "show.json", user: user)
+    with {:ok, %User{} = user} <- Users.update_user(user, user_params) do
+      render(conn, "show.json", user: user)
     end
   end
 

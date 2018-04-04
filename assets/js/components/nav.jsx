@@ -54,7 +54,7 @@ function Nav(props) {
   return (
     <nav className="navbar navbar-dark bg-dark navbar-expand">
       <span className="navbar-brand">
-        μBlog
+        Tracker
       </span>
       <ul className="navbar-nav mr-auto">
         <NavItem>

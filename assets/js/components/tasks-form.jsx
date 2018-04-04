@@ -44,8 +44,8 @@ function TaskForm(props) {
         <Input type="textarea" name="body" value={props.form.body} onChange={update} />
       </FormGroup>
       <FormGroup>
-        <Label for="is_complete">Task Complete?</Label>
         <Input type="checkbox" name="is_complete" value={props.form.is_complete} onChange={update} />
+        <Label for="is_complete">Task Complete?</Label>
       </FormGroup>
       <FormGroup>
         <Label for="assigned_user">Assign To (optional)</Label>
@@ -54,7 +54,7 @@ function TaskForm(props) {
       <FormGroup>
         <NumericInput step={15} value={props.form.time_spent} onChange={update}/>
       </FormGroup>
-      <Button onClick={submit} color="primary">Post</Button> &nbsp
+      <Button onClick={submit} color="primary">Post</Button>
       <Button onClick={clear}>Clear</Button>
     </div>
   )

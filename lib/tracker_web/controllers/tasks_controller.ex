@@ -23,12 +23,11 @@ defmodule TrackerWeb.TasksController do
      else
        tasks_params
      end
-    case Social.create_tasks(tasks_params) do
-      {:ok, tasks} ->
-        conn
-        |> put_status(:created)
-        |> put_resp_header("location", tasks_path(conn, :show, post))
-        |> render("show.json", tasks: tasks)
+    with {:ok, %Tasks{} = tasks} <- Social.create_tasks(tasks_params) do
+      conn
+      |> put_status(:created)
+      |> put_resp_header("location", tasks_path(conn, :show, tasks))
+      |> render("show.json", tasks: tasks)
     end
   end
 
@@ -55,8 +54,7 @@ defmodule TrackerWeb.TasksController do
 
     if rem(time_spent, 15) == 0 and tasks.assigned_user != nil and conn.assigns[:current_user].id == tasks.assigned_user.id do
       tasks_params = Map.put(tasks_params, "time_spent", time_spent)
-      case Social.update_tasks(tasks, tasks_params) do
-        {:ok, tasks} ->
+      with {:ok, %Tasks{} = tasks} <- Social.create_tasks(tasks_params) do
           render(conn, "show.json", tasks: tasks)
       end
     else
