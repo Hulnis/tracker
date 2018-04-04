@@ -9,6 +9,7 @@ function Task(params) {
   let task = params.task
 
   function update(ev) {
+    ev.preventDefault()
     console.log("update", ev)
     console.log("update", ev.target)
     let tgt = $(ev.target)
@@ -52,7 +53,7 @@ function Task(params) {
   return (
     <Card>
       <CardTitle>Task: {task.title}</CardTitle>
-        <FormGroup>
+        <FormGroup check inline>
           <Label for="is_complete">Task Complete?</Label>
           <Input type="checkbox" name="is_complete" value={params.forms[task.id].is_complete} onChange={update} />
         </FormGroup>
