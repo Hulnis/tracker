@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Card, CardBody, CardTitle } from 'reactstrap'
-import { Button, FormGroup, Label, Input, Checkbox } from 'reactstrap'
+import { Button, FormGroup, Label, Input } from 'reactstrap'
 import NumericInput from 'react-numeric-input';
 import api from '../api'
 
