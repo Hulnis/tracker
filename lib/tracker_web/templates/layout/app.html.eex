@@ -13,22 +13,6 @@
 
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-3 offset-9">
-          <%= if @current_user do %>
-            <p>
-              Logged in as: <%= @current_user.name %> |
-              <%= link "Log Out", to: "/session", method: :delete %>
-            </p>
-          <% else %>
-            <p>
-              <span>Not logged in.</span>
-              <span>| <%= link "Log In", to: page_path(@conn, :index) %>
-            </p>
-          <% end %>
-        </div>
-      </div>
-
       <%= if get_flash(@conn, :info) do %>
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <% end %>
@@ -36,10 +20,9 @@
         <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <% end %>
 
-      <main role="main">
+      <main>
         <%= render @view_module, @view_template, assigns %>
       </main>
-
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
