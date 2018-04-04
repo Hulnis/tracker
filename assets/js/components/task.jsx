@@ -30,6 +30,7 @@ function Task(params) {
     api.submit_task_update(params.forms[task.id], task.id)
     console.log(params.forms)
   }
+  
   let assigned_user_value = ""
   let time_spent_value = 0;
   if (params.forms[task.id]) {
