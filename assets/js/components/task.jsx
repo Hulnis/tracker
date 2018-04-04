@@ -26,14 +26,8 @@ function Task(params) {
     params.dispatch(action)
   }
 
-  function updateTime(arg1, arg2, arg3) {
-    console.log("arg1", arg1)
-    console.log("arg2", arg2)
-    console.log("arg3", arg3)
-    let tgt = $(ev.target)
-
-    let form_data = {}
-    form_data[tgt.attr('name')] = tgt.val()
+  function updateTime(timeAsInt, timeAsString) {
+    form_data["time_spent"] = timeAsString
 
     let data = {}
     data["id"] = params.task.id
