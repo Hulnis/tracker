@@ -51,6 +51,11 @@ defmodule TrackerWeb.TasksController do
 
     tasks = Social.get_tasks!(id)
     name = tasks_params["assigned_user"]
+    IO.puts("----update task----")
+    IO.inspect(tasks)
+    IO.inspect(tasks_params)
+    IO.inspect(user_id)
+    IO.puts("----update task----")
     tasks_params = if (user_id == tasks.user.id and name != "") do
       Map.put(tasks_params, "assigned_user_id", Accounts.get_user_by_name(name).id)
     else
