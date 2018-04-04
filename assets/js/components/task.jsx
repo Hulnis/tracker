@@ -51,9 +51,8 @@ function Task(params) {
     <Card>
       <CardTitle>Task: {task.title}</CardTitle>
         <FormGroup>
-          <Checkbox name="is_complete" value={params.forms[task.id].is_complete} onChange={update}>
-            Is Complete?
-          </Checkbox>
+          <Label for="is_complete">Task Complete?</Label>
+          <Input type="checkbox" name="is_complete" value={params.forms[task.id].is_complete} onChange={update} />
         </FormGroup>
       <FormGroup>
         <Label for="assigned_user">Assigned To (optional)</Label>
