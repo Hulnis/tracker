@@ -27,6 +27,7 @@ function Task(params) {
   }
 
   function updateTime(timeAsInt, timeAsString) {
+    let form_data = {}
     form_data["time_spent"] = timeAsString
 
     let data = {}
