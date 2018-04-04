@@ -36,7 +36,8 @@ function Task(params) {
       <CardTitle>Task: {task.title}</CardTitle>
       <FormGroup>
         <Label for="assigned_user">Assign To (optional)</Label>
-        <Input type="text" name="assigned_user" value={params.task.assigned_user.name} onChange={update} />
+        <Input type="text" name="assigned_user" onChange={update}
+               value={params.task.assigned_user ? params.task.assigned_user.name : ""} />
       </FormGroup>
       <CardTitle>Status: {task.is_complete ? "Complete" : "Not Complete"}</CardTitle>
       <FormGroup>
