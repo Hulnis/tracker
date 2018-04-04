@@ -1,5 +1,5 @@
-defmodule MicroblogWeb.TokenView do
-  use MicroblogWeb, :view
+defmodule TrackerWeb.TokenView do
+  use TrackerWeb, :view
 
   def render("token.json", %{user: user, token: token}) do
     %{
