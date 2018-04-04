@@ -29,7 +29,7 @@ class APIServer {
     });
   }
 
-  submit_TASK(data) {
+  submit_task(data) {
     $.ajax("/api/v1/tasks", {
       method: "post",
       dataType: "json",
@@ -39,6 +39,21 @@ class APIServer {
         store.dispatch({
           type: 'ADD_TASK',
           post: resp.data,
+        });
+      },
+    });
+  }
+
+  submit_task(data) {
+    $.ajax("/api/v1/user", {
+      method: "post",
+      dataType: "json",
+      contentType: "application/json; charset=UTF-8",
+      data: JSON.stringify({ token: data.token, post: data }),
+      success: (resp) => {
+        store.dispatch({
+          type: 'ADD_USER',
+          user: resp.data,
         });
       },
     });

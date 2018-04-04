@@ -29,12 +29,14 @@ function users(state = [], action) {
   switch (action.type) {
   case 'USERS_LIST':
     return [...action.users]
+  case 'ADD_USER':
+    return [action.user, ...state]
   default:
     return state
   }
 }
 
-let empty_form = {
+let empty_task_form = {
   title: "",
   body: "",
   is_complete: false,
@@ -42,12 +44,31 @@ let empty_form = {
   time_spent: 0,
 }
 
-function form(state = empty_form, action) {
+function task_form(state = empty_task_form, action) {
   switch (action.type) {
     case 'UPDATE_FORM':
       return Object.assign({}, state, action.data)
     case 'CLEAR_FORM':
-      return Object.assign({}, state, empty_form)
+      return Object.assign({}, state, empty_task_form)
+    case 'SET_TOKEN':
+      return Object.assign({}, state, action.token)
+    default:
+      return state
+  }
+}
+
+let empty_user_form = {
+  name: "",
+  email: "",
+  password: "",
+}
+
+function task_form(state = empty_user_form, action) {
+  switch (action.type) {
+    case 'USER_UPDATE_FORM':
+      return Object.assign({}, state, action.data)
+    case 'USER_CLEAR_FORM':
+      return Object.assign({}, state, empty_user_form)
     case 'SET_TOKEN':
       return Object.assign({}, state, action.token)
     default:
@@ -82,7 +103,7 @@ function root_reducer(state0, action) {
   console.log("reducer", action)
   // {posts, users, form} is ES6 shorthand for
   // {posts: posts, users: users, form: form}
-  let reducer = combineReducers({tasks, users, form, token, login})
+  let reducer = combineReducers({tasks, users, task_form, user_form, token, login})
   let state1 = reducer(state0, action)
   console.log("state1", state1)
   return deepFreeze(state1)
