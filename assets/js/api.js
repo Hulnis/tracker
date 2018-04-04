@@ -47,7 +47,7 @@ class APIServer {
   submit_task_update(data, id) {
     data[id] = id
     $.ajax("/api/v1/tasks/" + id, {
-      method: "post",
+      method: "put",
       dataType: "json",
       contentType: "application/json; charset=UTF-8",
       data: JSON.stringify({ token: data.token, tasks: data }),
