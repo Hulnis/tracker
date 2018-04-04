@@ -26,6 +26,27 @@ function Task(params) {
     params.dispatch(action)
   }
 
+  function updateTime(arg1, arg2, arg3) {
+    console.log("arg1", arg1)
+    console.log("arg2", arg2)
+    console.log("arg3", arg3)
+    let tgt = $(ev.target)
+
+    let form_data = {}
+    form_data[tgt.attr('name')] = tgt.val()
+
+    let data = {}
+    data["id"] = params.task.id
+    data["update"] = form_data
+
+    let action = {
+      type: 'UPDATE_EDIT_FORM',
+      data: data,
+    }
+    console.log(action)
+    params.dispatch(action)
+  }
+
   function submit(ev) {
     api.submit_task_update(params.forms[task.id], task.id)
     console.log(params.forms)
@@ -40,7 +61,7 @@ function Task(params) {
       </FormGroup>
       <CardTitle>Status: {task.is_complete ? "Complete" : "Not Complete"}</CardTitle>
       <FormGroup>
-        <NumericInput step={15} value={params.forms[task.id].time_spent} onChange={update} />
+        <NumericInput step={15} value={params.forms[task.id].time_spent} onChange={updateTime} />
       </FormGroup>
       <CardBody>
         <div>
