@@ -46,6 +46,12 @@ defmodule Tracker.Accounts do
   def get_user_by_name(name) do
     Repo.get_by(User, name: name)
   end
+
+  def get_and_auth_user(name, pass) do
+    user = Repo.one(from u in User, where: u.name == ^name)
+    Comeonin.Argon2.check_pass(user, pass)
+  end
+
   @doc """
   Creates a user.
 
