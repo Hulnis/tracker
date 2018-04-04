@@ -7,12 +7,12 @@ defmodule TrackerWeb.TasksController do
 
   def index(conn, _params) do
     tasks = Social.list_tasks()
-    render(conn, "index.html", tasks: tasks)
+    render(conn, "index.json", tasks: tasks)
   end
 
   def new(conn, _params) do
     changeset = Social.change_tasks(%Tasks{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.json", changeset: changeset)
   end
 
   def create(conn, %{"tasks" => tasks_params}) do
@@ -33,13 +33,13 @@ defmodule TrackerWeb.TasksController do
 
   def show(conn, %{"id" => id}) do
     tasks = Social.get_tasks!(id)
-    render(conn, "show.html", tasks: tasks)
+    render(conn, "show.json", tasks: tasks)
   end
 
   def edit(conn, %{"id" => id}) do
     tasks = Social.get_tasks!(id)
     changeset = Social.change_tasks(tasks)
-    render(conn, "edit.html", tasks: tasks, changeset: changeset)
+    render(conn, "edit.json", tasks: tasks, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "tasks" => tasks_params}) do
@@ -58,7 +58,7 @@ defmodule TrackerWeb.TasksController do
           render(conn, "show.json", tasks: tasks)
       end
     else
-      render(conn, "show.html", tasks: tasks)
+      render(conn, "show.json", tasks: tasks)
     end
   end
 
