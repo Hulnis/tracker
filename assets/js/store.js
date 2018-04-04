@@ -54,7 +54,9 @@ function edit_task_form(state = empty_task_update_form, action) {
       let newData = {
         rand: Math.random()
       }
+      console.log("to change1", newData[action.data.id])
       newData[action.data.id] = Object.assign({}, state[action.data.id], action.data.update)
+      console.log("to change2", newData[action.data.id])
       return Object.assign({}, state, newData)
     case "TASKS_LIST":
       action.tasks.forEach(function(task) {
