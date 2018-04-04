@@ -38,11 +38,11 @@ function Task(params) {
         <Label for="assigned_user">Assign To (optional)</Label>
         <Input type="text" name="assigned_user" onChange={update}
                defaultValue={params.task.assigned_user ? params.task.assigned_user.name : ""}
-               value={params.form[id].assigned_user} />
+               value={params.form[task.id].assigned_user} />
       </FormGroup>
       <CardTitle>Status: {task.is_complete ? "Complete" : "Not Complete"}</CardTitle>
       <FormGroup>
-        <NumericInput step={15} value={params.form[id].time_spent}
+        <NumericInput step={15} value={params.form[task.id].time_spent}
                       defaultValue={params.task.time_spent} onChange={update} />
       </FormGroup>
       <CardBody>
