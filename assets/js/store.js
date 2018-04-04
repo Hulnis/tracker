@@ -59,6 +59,7 @@ function edit_task_form(state = empty_task_update_form, action) {
           assigned_user: task.assigned_user ? task.assigned_user.name : ""
         }
       })
+      console.log("state1", state)
       return state
     case "ADD_TASK":
       state[task.id] = {
