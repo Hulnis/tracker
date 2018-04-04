@@ -1,5 +1,4 @@
 import { createStore, combineReducers } from 'redux'
-import deepFreeze from 'deep-freeze'
 
 function tasks(state = [], action) {
   switch (action.type) {
@@ -122,7 +121,7 @@ function root_reducer(state0, action) {
   let reducer = combineReducers({tasks, users, task_form, user_form, token, login, edit_task_form})
   let state1 = reducer(state0, action)
   console.log("state1", state1)
-  return deepFreeze(state1)
+  return state1
 }
 
 let store = createStore(root_reducer)
