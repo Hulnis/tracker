@@ -6,7 +6,6 @@ import NumericInput from 'react-numeric-input';
 import api from '../api'
 
 function Task(params) {
-  console.log("Task params", params)
   let task = params.task
 
   function update(ev) {
@@ -52,8 +51,8 @@ function Task(params) {
     <Card>
       <CardTitle>Task: {task.title}</CardTitle>
         <FormGroup>
-          <Input type="checkbox" name="is_complete" value={params.forms[task.id].is_complete} onChange={update} />
           <Label for="is_complete">Task Complete?</Label>
+          <Input type="checkbox" name="is_complete" value={params.forms[task.id].is_complete} onChange={update} />
         </FormGroup>
       <FormGroup>
         <Label for="assigned_user">Assigned To (optional)</Label>
