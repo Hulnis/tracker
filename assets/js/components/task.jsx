@@ -13,7 +13,7 @@ function Task(params) {
     console.log("update", ev)
     console.log("update", ev.target.type === "checkbox")
     console.log("update", ev.target.checked)
-    let tgt = $(ev.target)
+    let target = ev.target
 
     let form_data = {}
     const value = target.type === 'checkbox' ? target.checked : target.value
