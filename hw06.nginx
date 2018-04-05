@@ -2,10 +2,10 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	server_name memory.webdevnumber1.com;
+	server_name tasks3.webdevnumber1.com;
 
 	location / {
-		proxy_pass http://localhost:5102;
+		proxy_pass http://localhost:5103;
 		#try_files $uri $uri/ =404;
 	}
 }
