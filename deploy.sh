@@ -13,7 +13,7 @@ mix ecto.migrate
 mix phx.digest
 # mix release --env=prod
 
-PORT=5102 MIX_ENV=prod elixir --detached -S mix phx.server
+PORT=5104 MIX_ENV=prod elixir --detached -S mix phx.server
 
 # mkdir -p ~/www
 # mkdir -p ~/old
